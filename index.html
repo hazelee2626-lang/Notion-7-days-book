@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>노션대학 7일 챌린지 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:     #FAF6EF;
+  --cream2:    #F0E9DC;
+  --cream3:    #E8DDD0;
+  --brown-lt:  #C4A882;
+  --brown:     #C4855A;
+  --brown-dk:  #5C4433;
+  --text:      #3D2B1F;
+  --text-lt:   #7A5C47;
+  --blue:      #4A6FA5;
+  --blue-lt:   #EEF3FA;
+  --shot-org:  #F5E6D3;
+  --shot-org-b:#C4855A;
+  --shot-blu:  #E8EEF8;
+  --shot-blu-b:#4A6FA5;
+  --shot-grn:  #E3F0E8;
+  --shot-grn-b:#3A7D52;
+  --page-w:    210mm;
+  --page-h:    297mm;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: #D6CFC5;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  background: var(--cream);
+  margin: 0 auto 16px;
+  padding: 14mm 16mm;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--brown-dk), var(--brown), var(--brown-lt), var(--brown), var(--brown-dk));
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9mm;
+  padding-bottom: 3mm;
+  border-bottom: 1px solid var(--cream3);
+}
+.page-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); }
+.page-num { font-size: 10px; color: var(--text-lt); letter-spacing: 1px; }
+.day-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: var(--brown-dk); margin-bottom: 4mm; padding: 3px 10px; background: var(--cream2); border-radius: 20px; border: 1px solid var(--cream3); }
+.page-title { font-family: 'Noto Serif KR', serif; font-size: 27px; font-weight: 900; color: var(--brown-dk); line-height: 1.22; margin-bottom: 2.5mm; letter-spacing: -.3px; }
+.page-subtitle { font-size: 12.5px; color: var(--text-lt); margin-bottom: 5.5mm; }
+h3.sub-title { font-size: 13px; font-weight: 700; color: var(--brown); margin-bottom: 2mm; }
+p { margin-bottom: 2mm; font-size: 13px; }
+strong { color: var(--brown-dk); }
+.why-box { background: white; border: 1.5px solid var(--cream3); border-radius: 10px; padding: 4.5mm 5mm; margin-bottom: 4.5mm; }
+.why-box .why-label { font-size: 11px; font-weight: 700; color: var(--brown); letter-spacing: .8px; margin-bottom: 2mm; display: block; }
+.why-box p { font-size: 13px; margin-bottom: 1.5mm; }
+.step-box { background: white; border: 2px solid var(--brown); border-radius: 10px; padding: 4.5mm 5mm; margin-bottom: 4.5mm; }
+.step-box .step-title { font-size: 12.5px; font-weight: 700; color: var(--brown); margin-bottom: 3mm; display: flex; align-items: center; gap: 5px; }
+.step-box ol { padding-left: 0; counter-reset: step-counter; list-style: none; }
+.step-box ol li { counter-increment: step-counter; font-size: 13px; margin-bottom: 2.5mm; padding-left: 26px; position: relative; line-height: 1.65; }
+.step-box ol li::before { content: counter(step-counter); position: absolute; left: 0; top: 1px; width: 18px; height: 18px; background: var(--brown); color: white; border-radius: 50%; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.small-note { font-size: 11.5px; color: var(--text-lt); margin-top: 2mm; line-height: 1.6; font-style: italic; }
+.screenshot { border-radius: 8px; padding: 7mm 5mm; margin-bottom: 4mm; text-align: center; min-height: 24mm; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.screenshot.my-shot    { background: var(--shot-org); border: 2px dashed var(--shot-org-b); }
+.screenshot.user-shot  { background: var(--shot-blu); border: 2px dashed var(--shot-blu-b); }
+.screenshot.motion-shot{ background: var(--shot-grn); border: 2px dashed var(--shot-grn-b); }
+.shot-badge { font-size: 11px; font-weight: 700; margin-bottom: 1mm; }
+.my-shot .shot-badge { color: var(--shot-org-b); }
+.user-shot .shot-badge { color: var(--shot-blu-b); }
+.motion-shot .shot-badge { color: var(--shot-grn-b); }
+.shot-icon { font-size: 20px; margin-bottom: 2px; }
+.shot-desc { font-size: 11px; color: var(--text-lt); line-height: 1.5; }
+.tip-box { background: var(--blue-lt); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 3mm 4.5mm; margin-bottom: 4mm; font-size: 12px; color: var(--text); line-height: 1.7; }
+.tip-box strong { color: var(--blue); }
+.checklist { list-style: none; margin-bottom: 3mm; }
+.checklist li { display: flex; align-items: flex-start; gap: 8px; padding: 2.5mm 0; border-bottom: 1px solid var(--cream3); font-size: 13px; line-height: 1.65; }
+.checklist li:last-child { border-bottom: none; }
+.check-box { width: 16px; height: 16px; border: 2px solid var(--cream3); border-radius: 3px; flex-shrink: 0; margin-top: 2px; background: white; }
+.day-complete { background: var(--cream2); border-left: 4px solid var(--brown); border-radius: 0 8px 8px 0; padding: 3.5mm 5mm; margin: 4mm 0; font-size: 13px; color: var(--brown-dk); line-height: 1.7; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 4mm; }
+.card { background: white; border: 1.5px solid var(--cream3); border-radius: 8px; padding: 4mm; }
+.card.highlight { border-color: var(--brown); background: #FFF8F3; }
+.card .card-icon { font-size: 18px; margin-bottom: 2mm; display: block; }
+.card .card-name { font-size: 13px; font-weight: 700; color: var(--brown-dk); margin-bottom: 1mm; }
+.card .card-desc { font-size: 11.5px; color: var(--text-lt); line-height: 1.55; }
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 4mm; }
+.compare-card { border-radius: 8px; padding: 4mm; }
+.compare-card.left  { background: #F5F5F5; border: 1.5px solid #DDD; }
+.compare-card.right { background: #FFF8F0; border: 1.5px solid var(--brown-lt); }
+.compare-card .cc-icon  { font-size: 20px; margin-bottom: 2mm; display: block; }
+.compare-card .cc-title { font-size: 13px; font-weight: 700; margin-bottom: 1.5mm; color: var(--brown-dk); }
+.compare-card .cc-desc  { font-size: 11.5px; color: var(--text-lt); line-height: 1.55; }
+.roadmap-row { display: flex; align-items: flex-start; gap: 4mm; padding: 3mm 4mm; border-bottom: 1px solid var(--cream3); }
+.roadmap-row:last-child { border-bottom: none; }
+.roadmap-day { width: 32px; height: 32px; background: var(--brown-dk); color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+.roadmap-content strong { font-size: 13px; display: block; color: var(--brown-dk); }
+.roadmap-content span { font-size: 11.5px; color: var(--text-lt); }
+.block-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 4mm; }
+.block-item { background: white; border: 1.5px solid var(--cream3); border-radius: 8px; padding: 3.5mm 4mm; }
+.block-item .bi-cmd { font-size: 13px; font-weight: 700; color: var(--brown-dk); font-family: monospace; margin-bottom: 1mm; }
+.block-item .bi-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 1mm; }
+.block-item .bi-desc { font-size: 11px; color: var(--text-lt); line-height: 1.5; }
+.tree { font-family: monospace; background: white; border: 1.5px solid var(--cream3); border-radius: 8px; padding: 4mm 5mm; font-size: 12.5px; margin-bottom: 4mm; line-height: 2; color: var(--text); }
+.tree .t-main { font-weight: 700; color: var(--brown-dk); }
+.tree .t-sub  { padding-left: 16px; }
+.tree .t-sub2 { padding-left: 32px; font-size: 12px; color: var(--text-lt); }
+.grade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 4mm; }
+.grade-card { background: white; border: 1.5px solid var(--cream3); border-radius: 8px; padding: 4mm; }
+.grade-card .grade-num { width: 26px; height: 26px; background: var(--brown-dk); color: white; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-bottom: 2mm; }
+.grade-card .grade-name { font-size: 13px; font-weight: 700; color: var(--brown-dk); margin-bottom: 1mm; }
+.grade-card .grade-desc { font-size: 11.5px; color: var(--text-lt); }
+.recap-box { background: var(--cream2); border-radius: 8px; padding: 4mm 5mm; margin-bottom: 4mm; }
+.recap-box .recap-title { font-size: 11px; font-weight: 700; color: var(--brown); letter-spacing: 1px; margin-bottom: 2mm; }
+.recap-box .recap-row { display: flex; align-items: center; gap: 5px; font-size: 12.5px; margin-bottom: 1.5mm; color: var(--text); }
+.link-placeholder { border: 2px dashed var(--cream3); border-radius: 8px; padding: 5mm; text-align: center; margin-bottom: 4mm; }
+.link-placeholder .lp-icon  { font-size: 20px; margin-bottom: 2px; }
+.link-placeholder .lp-title { font-size: 12px; font-weight: 700; color: var(--brown); margin-bottom: 1mm; }
+.link-placeholder .lp-link  { font-size: 12px; color: var(--brown); }
+.link-placeholder .lp-sub   { font-size: 11px; color: var(--text-lt); }
+.insta-box { background: linear-gradient(135deg, #fff9f5, #fef3e8); border: 1.5px solid var(--brown-lt); border-radius: 10px; padding: 5mm 6mm; text-align: center; margin-bottom: 4mm; }
+.insta-box .insta-handle { font-size: 20px; font-weight: 900; color: var(--brown-dk); font-family: 'Noto Serif KR', serif; margin-bottom: 1mm; }
+.shot-label-inline { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+.shot-label-inline.my   { background: var(--shot-org); color: var(--shot-org-b); }
+.shot-label-inline.user { background: var(--shot-blu); color: var(--shot-blu-b); }
+.cover-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: var(--page-h); text-align: center; }
+.cover-kicker { font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--brown-lt); margin-bottom: 7mm; font-weight: 600; }
+.cover-logo   { font-size: 68px; margin-bottom: 5mm; line-height: 1; }
+.cover-title  { font-family: 'Noto Serif KR', serif; font-size: 42px; font-weight: 900; color: var(--brown-dk); line-height: 1.2; margin-bottom: 5mm; letter-spacing: -.5px; }
+.cover-sub    { font-size: 13.5px; color: var(--text-lt); line-height: 1.9; margin-bottom: 10mm; }
+.cover-tags   { display: flex; flex-wrap: wrap; gap: 2.5mm; justify-content: center; }
+.cover-tag    { padding: 2px 12px; border: 1.5px solid var(--brown-lt); border-radius: 20px; font-size: 11px; color: var(--text-lt); }
+.completion-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(var(--page-h) - 28mm); text-align: center; gap: 4mm; }
+.cta-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(var(--page-h) - 28mm); text-align: center; gap: 0; }
+.cta-btn { display: inline-block; background: var(--brown-dk); color: white; padding: 4mm 14mm; border-radius: 30px; font-size: 14px; font-weight: 700; text-decoration: none; letter-spacing: .5px; }
+@media print { body { background: white; } .page { margin: 0; } }
+@page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 표지 -->
+<div class="page cover-page">
+  <div class="cover-kicker">Notion University</div>
+  <!-- 마스코트: <img src="./IMG_4231.PNG" style="width:90px;height:90px;object-fit:contain;margin-bottom:5mm;"> -->
+  <img src="https://i.imgur.com/tiJIcht.png" alt="노션대학 로고" style="width: 200px; height: 200px; object-fit:contain; flex-shrink: 0;">
+      <div class="cover-title" style="margin-bottom: 10mm; line-height: 1.5;">노션대학<br>7일 학습지</div>
+    
+    <div class="cover-sub" style="margin-top: 8mm; margin-bottom: 12mm; line-height: 1.8;">
+      <strong>노션(Notion)</strong>이 낯선 당신을 위한 첫 번째 오리엔테이션.<br>
+      하루 15분씩, <strong>7일</strong>이면 충분합니다.
+    </div>
+
+  <div class="cover-tags">
+    <span class="cover-tag"><strong>Day 1</strong> 노션이란? + 계정</span>
+    <span class="cover-tag"><strong>Day 2</strong> 내 첫 페이지</span>
+    <span class="cover-tag"><strong>Day 3</strong> 페이지 vs 블록</span>
+    <span class="cover-tag"><strong>Day 4</strong> 텍스트 꾸미기</span>
+    <span class="cover-tag"><strong>Day 5</strong> 페이지 구조화</span>
+    <span class="cover-tag"><strong>Day 6</strong> 내 노션 홈 완성</span>
+    <span class="cover-tag"><strong>Day 7</strong> 내 전공 찾기</span>
+  </div>
+</div>
+
+<!-- PAGE 2 환영 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">WELCOME</span><span class="page-num">2 / 26</span></div>
+  <div class="page-title">안녕하세요, 반갑습니다 🦉</div>
+  <div class="page-subtitle">이 학습지를 펼쳐주신 당신에게</div>
+  <div style="background:white;border:1.5px solid var(--cream3);border-radius:10px;padding:5mm 6mm;margin-bottom:5mm;">
+    <p>노션이 어렵게 느껴져서 몇 번 포기해본 적 있으신가요?</p>
+    <p>빈 페이지 앞에서 멍하니 있다가 그냥 껐던 경험? 저도 있었어요.</p>
+    <p style="margin-top:2mm">그런데 말이죠, 노션(Notion), 요놈 요거 배우면 배울수록 물건이던데요?</p>
+    <p style="margin-top:3mm;line-height:1.75">
+      <span style="text-decoration:underline;text-decoration-color:var(--brown);text-decoration-thickness:2px;text-underline-offset:4px;">이렇게 좋은거 나 혼자만 알고 있기 너무 아깝잖아요.<br>
+      더 많은 분들이 노션을 접하고, 그 사람들과 연결되어 더 좋은 세상이 왔으면 하는 마음, 이 노션 학습지는 그렇게 시작되었어요.</span>
+    </p>
+    <p style="margin-top:2mm">딱 하루에 5분에서 최대 15분, 7일이면 됩니다.</p>
+    <p style="margin-top:4mm;font-weight:700;color:var(--brown);">우리, 조금씩이지만 끝까지 함께 해볼래요?</p>
+    <div style="text-align:right;font-size:11px;color:var(--text-lt);margin-top:1mm;">— Notion University 운영진 일동 🦉</div>
+  </div>
+  <h3 class="sub-title">이 학습지 사용법</h3>
+  <ul class="checklist" style="margin-bottom:4mm">
+    <li><span class="check-box"></span>매일 하루치만 열어요. 한 번에 다 볼 필요 없어요.</li>
+    <li><span class="check-box"></span><span>학습지를 보면서 실제 노션을 옆에 키고 같이 해봐요. 눈으로만 보면 안 남아요!<br><span style="text-decoration:underline;text-decoration-color:var(--brown);text-decoration-thickness:1.4px;text-underline-offset:4px;">실제로 해보면서 '내껄'로 만들어봐요 :)</span></span></li>
+    <li><span class="check-box"></span>노션을 쓰다 막히는 부분이 생기면 노션대학 커뮤니티에 얼마든지(언제든지) 질문해주세요. 내가 모르는 무언가 다른분들도 궁금해 할 수도 있어요. 혼자 끙끙 앓지 마세요! 🦉</li>
+      <!-- 👇 학습지 사용법 리스트가 완전히 끝난 페이지 최하단으로 정밀 이동 완료 -->
+    <div class="tip-box" style="display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 4mm 5mm; background-color: #f0f4f8; border-left: 3px solid #4a90e2; border-radius: 0 6px 6px 0; margin-top: 25mm; margin-bottom: 2mm;">
+      
+      <div style="flex: 1;">
+        <p style="font-size: 11.5px; color: var(--text-lt); margin: 0; line-height: 1.5;">
+          오른쪽 QR코드를 스캔하면 <strong>노션대학 커뮤니티</strong>로 바로 연결됩니다. 😊
+        </p>
+      </div>
+      
+      <div style="flex-shrink: 0; text-align: center;">
+        <img src="https://i.imgur.com/LdyK7JT.png" alt="노션대학 커뮤니티 QR코드" style="width: 80px; height: 80px; display: block; border-radius: 4px; border: 1px solid var(--cream3); background: #ffffff;">
+      </div>
+
+    </div>
+</div>
+
+<!-- PAGE 3 로드맵 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">ROADMAP</span><span class="page-num">3 / 26</span></div>
+  <div class="page-title">7일 동안 뭘 배우나요?</div>
+  <div class="page-subtitle">전체 그림을 먼저 보고 시작해요 — 7일 챌린지는 노션대학 입학 전 오리엔테이션이에요.<br>즉, 노션에 대해 더 깊게 들어가기 전 기초적인 지식을 채워나가는 공간입니다.</div>
+  <div style="background:white;border:1.5px solid var(--cream3);border-radius:10px;padding:2mm 4mm;margin-bottom:5mm;">
+    <div class="roadmap-row"><div class="roadmap-day">D1</div><div class="roadmap-content"><strong>노션이란? + 계정 만들기</strong><span>노션이 뭔지 이해하고, 계정을 만들고, 처음 화면을 둘러봐요</span></div></div>
+    <div class="roadmap-row"><div class="roadmap-day">D2</div><div class="roadmap-content"><strong>내 첫 페이지 만들기</strong><span>사이드바를 파악하고, 첫 페이지를 직접 만들어봐요</span></div></div>
+    <div class="roadmap-row"><div class="roadmap-day">D3</div><div class="roadmap-content"><strong>페이지 vs 블록</strong><span>블록 → 페이지 순으로 이해해요. 슬래시(/) 명령어로 다양한 블록 만들기</span></div></div>
+    <div class="roadmap-row"><div class="roadmap-day">D4</div><div class="roadmap-content"><strong>텍스트 꾸미기</strong><span>글자·블록·페이지 단위로 꾸미기. 커버+아이콘 실습 포함</span></div></div>
+    <div class="roadmap-row"><div class="roadmap-day">D5</div><div class="roadmap-content"><strong>페이지 안의 페이지 (구조화)</strong><span>페이지로 폴더처럼 계층 구조를 만들고, 멘션(@)으로 페이지끼리 연결해요</span></div></div>
+    <div class="roadmap-row"><div class="roadmap-day">D6</div><div class="roadmap-content"><strong>내 노션 홈(대시보드) 완성</strong><span>노션을 켤 때 제일 먼저 보이는 나만의 홈 페이지를 완성해요</span></div></div>
+    <div class="roadmap-row" style="border-bottom:none"><div class="roadmap-day" style="background:var(--brown)">D7</div><div class="roadmap-content"><strong>내 전공 찾기 + 노션대학 웰컴키트 수령🎓</strong><span>4개 전공 중 하나를 고르고, 노션대학에서 노션에 대해 더 파고들어봐요 </span></div></div>
+  
+  </div>
+  <div class="day-complete">7일 챌린지 완주 후, 무료 노션 템플릿이 포함된 노션대학 웰컴키트를 받아가세요.🎓<br></div>
+</div>
+
+<!-- PAGE 4 Day1 노션이란 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 1 · 노션이란?</span><span class="page-num">4 / 26</span></div>
+  <div class="day-badge">🚀 Day 1</div>
+  <div class="page-title">노션? 메모앱?</div>
+  <div class="page-subtitle">노션이란 뭔가요? 결국엔 메모앱이랑 뭐가 다른건지 잘 모르겠던데요</div>
+  <div class="why-box">
+    <span class="why-label">먼저 이 질문부터</span>
+    <p>지금 핸드폰에 메모 앱 쓰고 계시죠? 거기다 글 쓰는 건 이미 하고 계실 거예요.</p>
+    <p>그럼 노션은 왜 따로 배워야 하나요?</p>
+  </div>
+      <div class="compare-grid">
+      <div class="compare-card left">
+        <div style="display: flex; align-items: center; gap: 1.5mm; margin-bottom: 2mm;">
+          <span class="cc-icon">📝</span>
+          <div class="cc-title" style="margin: 0; font-weight: 700;">일반 메모앱</div>
+        </div>
+        <div class="cc-desc">글만 써요.<br>내용이 많아지면 찾기 힘들어요. 구조 잡기도 어렵고요.</div>
+      </div>
+      
+      <div class="compare-card right">
+        <div style="display: flex; align-items: center; gap: 1.5mm; margin-bottom: 2mm;">
+          <div style="width: 16px; height: 16px; background-color: #ffffff; border: 1.2px solid #000000; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 900; color: #000000; line-height: 1; flex-shrink: 0; box-sizing: border-box; padding-bottom: 0.5px;">N</div>
+          <div class="cc-title" style="margin: 0; font-weight: 700;">노션(Notion)</div>
+        </div>
+        <div class="cc-desc">글 + 표 + 사진 + 체크리스트.<br>"나만의 구조"를 내가 "직접" 빌드했기 때문에 쉽게 쉽게 찾을 수 있어요.</div>
+      </div>
+    </div>
+
+  <p>다 흩어져 있다고요? 걱정마세요, 노션 하나로 모을 수 있어요.</p>
+  <p style="margin-bottom:4mm">쉽게 말하면, <strong>메모장 + 다이어리 + 프로젝트 관리 앱</strong>이 한 곳에 합쳐진 거예요.<br> 나만의 세컨드 브레인이 되는 거죠. 그리고 이 모든게 무료랍니다!?</p>
+      <!-- 👇 운영자 스샷자리에 요청하신 진짜 이미지 주소를 연동하고 밸런스를 맞췄습니다 -->
+    <div class="screenshot my-shot" style="width: 100%; border: 1.5px dashed var(--cream3); border-radius: 10px; padding: 3mm; background: #ffffff; box-sizing: border-box; margin-bottom: 3mm;">
+      <div class="shot-badge" style="margin-bottom: 2mm;">📸 노션 페이지 예시</div>
+      <img src="https://i.imgur.com/X8phnu9.jpeg" alt="운영자 스샷 이미지" style="width: 100%; height: auto; object-fit: contain; border-radius: 6px; display: block;">
+    </div>
+
+</div>
+
+<!-- PAGE 5 Day1 계정 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 1 · 계정 만들기</span><span class="page-num">5 / 26</span></div>
+  <div class="day-badge">🚀 Day 1</div>
+  <div class="page-title">노션 계정 만들고 로그인하기</div>
+  <div class="page-subtitle">app.notion.com — 여기서 시작해요</div>
+  <div class="step-box">
+    <div class="step-title">✏️ 따라해보기 — 계정 만들기</div>
+    <ol>
+      <li>브라우저에서 <strong>app.notion.com</strong> 접속</li>
+      <li><strong>"Notion 무료로 받기"</strong> 클릭 → 이메일 또는 구글/애플 계정으로 가입</li>
+      <li>용도 선택 화면 → <strong>"개인용"</strong> 선택 후 계속</li>
+      <li>첫 화면이 열리면 성공! 왼쪽에 사이드바가 보이면 성공! 🎉</li>
+    </ol>
+  </div>
+            <!-- 👇 업데이트 레이어드 박스와 요금제 콜아웃 박스를 나란히 정렬 완료 -->
+    <div style="display: flex; align-items: stretch; gap: 5mm; width: 100%; margin-bottom: 5mm;">
+      
+      <!-- [왼쪽 구역]: 노션 도메인 업데이트 안내 레이어드 박스 -->
+      <div class="screenshot user-shot" style="flex: 1; border: 1px solid var(--cream3); border-radius: 8px; padding: 4mm; background: #EFE9DF; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="font-size: 10.5px; color: var(--brown-dk); font-weight: 700; line-height: 1.5; text-align: center; margin-bottom: 3mm; letter-spacing: -0.6px;"> <!-- 💡 font-size와 letter-spacing을 조정하여 한 줄로 맞춤 -->
+          📢 2026년 6월부로 <span style="text-decoration: line-through; color: var(--text-lt); font-weight: 400;">notion.so</span> 에서<br> <span style="color: #654321; font-weight: 1000;">app.notion.com</span>으로 업데이트되었습니다.
+        </div>
+        <img src="https://i.imgur.com/Wg1q4LQ.jpeg" alt="노션 업데이트 이미지" style="width: 100%; height: auto; object-fit: contain; border-radius: 5px; display: block; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <div style="font-size: 9px; color: var(--text-lt); text-align: center; margin-top: 2mm; font-weight: 400;">
+          출처: Notion 링크드인
+        </div>
+      </div>
+
+      <!-- [오른쪽 구역]: 얇은 선 콜아웃 스타일로 변경하고 내부 간격을 대폭 넓힌 요금제 구역 -->
+      <div style="flex: 1.1; border: 1px solid var(--cream3); border-radius: 8px; padding: 3.5mm 3.5mm; background: transparent; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start;">
+        
+        <!-- 타이틀 서식 단정하게 조정 -->
+        <h3 class="sub-title" style="margin-top: 0; margin-bottom: 4mm; font-size: 12px; color: var(--brown-dk); font-weight: 800; display: flex; align-items: center; gap: 1.5mm;">
+          <span><div style="width: 16px; height: 16px; background-color: #ffffff; border: 1.2px solid #000000; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 900; color: #000000; line-height: 1; flex-shrink: 0; box-sizing: border-box; padding-bottom: 0.5px;">N</div>
+          </span> 노션은 무료로 사용해도 충분해요
+        </h3>
+        
+        <!-- 카드 그리드 (각 플랜 박스 사이에 넉넉한 띄어쓰기 빈칸 투입) -->
+        <div class="card-grid" style="display: flex; flex-direction: column; gap: 4mm; width: 100%;">
+          
+          <!-- 무료 플랜 카드 -->
+          <div class="card" style="background: #ffffff; border: 1px solid var(--cream3); border-radius: 6px; padding: 3mm 3.5mm; box-sizing: border-box; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+            <div style="display: flex; align-items: center; gap: 1.5mm; margin-bottom: 2px;">
+              <span class="card-icon">🆓</span>
+              <div class="card-name" style="font-size: 11px; font-weight: 700; color: var(--brown-dk);">무료 플랜</div>
+            </div>
+            <div class="card-desc" style="font-size: 9.5px; color: var(--text-lt); line-height: 1.45;">개인 사용 기준 거의 모든 기능 OK, 무료로 시작하세요!</div>
+          </div>
+          
+          <!-- 학생 플랜 카드 -->
+          <div class="card" style="background: #ffffff; border: 1px solid var(--cream3); border-radius: 6px; padding: 3mm 3.5mm; box-sizing: border-box; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+            <div style="display: flex; align-items: center; gap: 1.5mm; margin-bottom: 2px;">
+              <span class="card-icon">📚</span>
+              <div class="card-name" style="font-size: 11px; font-weight: 700; color: var(--brown-dk);">학생 플랜</div>
+            </div>
+            <div class="card-desc" style="font-size: 9.5px; color: var(--text-lt); line-height: 1.45;">학교 이메일(.ac.kr)로 인증하면 Plus 플랜 무료!</div>
+          </div>     
+        </div>
+      </div>
+
+    </div> <!-- 부모 컨테이너 마감 -->
+<div class="tip-box" style="margin-top: 60mm; margin-bottom: 2mm;">💡 학교 이메일로 가입한다면 Plus플랜이 무료에요.</div>
+</div>
+
+<!-- PAGE 6 Day1 첫화면 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 1 · 첫 화면 이해하기</span><span class="page-num">6 / 26</span></div>
+  <div class="day-badge">🚀 Day 1</div>
+  <div class="page-title">로그인 후 첫 화면 이해하기</div>
+  <div class="page-subtitle">낯선 화면, 당황하지 말고 하나씩 살펴봐요</div>
+  <div class="why-box">
+    <span class="why-label">뭐가 뭔지 모르겠어요</span>
+    <p>노션을 처음 켜면 왼쪽에엔 좁은 패널(사이드바), 오른쪽엔 큰 공간이 보여요(페이지).</p>
+    <p>왼쪽이 <strong>사이드바(목차)</strong>, 오른쪽이 <strong>편집 공간</strong>(실제 내용을 쓰는 곳)이에요.</p>
+  </div>
+       <div class="screenshot user-shot" style="width: 100%; border: 1.5px dashed var(--cream3); background-color: #ffffff; border-radius: 8px; padding: 4mm; box-sizing: border-box; margin-bottom: 4mm;">
+      
+      <div class="shot-badge" style="font-size: 10.5px; color: var(--brown-dk); font-weight: 700; text-align: center; margin-bottom: 2mm; letter-spacing: -0.2px;">
+        📸 로그인 후 펼쳐지는 첫 화면
+      </div>
+      
+      <img src="https://i.imgur.com/IoOEJqB.jpeg" alt="로그인 후 첫 화면" style="width: 100%; height: auto; object-fit: contain; border-radius: 5px; display: block; margin: 0 auto 2mm auto; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+      
+      <div class="shot-desc" style="font-size: 9.5px; color: var(--text-lt); text-align: center; line-height: 1.45; font-weight: 400;">
+      </div>
+
+    </div>
+
+  <h3 class="sub-title">사이드바에서 꼭 알아야 할 것들</h3>
+  <ul class="checklist">
+    <li><span class="check-box"></span><span><strong>개인 페이지 영역</strong> — 내가 만든 페이지들이 여기 목록으로 쭉 나와요</span></li>
+    <li><span class="check-box"></span><span><strong>+ 새 페이지 버튼</strong> — 여기서 새 페이지를 만들어요. 제일 많이 누를 버튼이에요!</span></li>
+    <li><span class="check-box"></span><span><strong>휴지통</strong> — 삭제한 페이지도 30일 안에 복구할 수 있어요. 겁내지 마세요 😊</span></li>
+  </ul>
+  <div class="day-complete">🎉 Day 1 완료! 오늘은 노션이 뭔지 알고, 계정을 만들고, 화면 구조를 파악했어요.<br> 내일은 첫 페이지를 직접 만들어봐요!</div>
+  <ul class="checklist">
+    <li><span class="check-box"></span>노션 계정 만들기 완료</li>
+    <li><span class="check-box"></span>사이드바, 페이지 화면(편집 공간), +새 페이지 등 구조 파악 완료</li>
+  </ul>
+</div>
+
+<!-- PAGE 7 Day2 첫페이지 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 2 · 내 첫 페이지</span><span class="page-num">7 / 26</span></div>
+  <div class="day-badge">📄 Day 2</div>
+  <div class="page-title">내 첫 페이지 직접 만들기</div>
+  <div class="page-subtitle">레고처럼 블록을 쌓으면 어떤 형태의 노트든 만들 수 있어요</div>
+  <div class="why-box">
+    <span class="why-label">페이지가 뭔가요?</span>
+    <p>노션에서의 페이지는 하나의 문서예요. 공책의 한 장 같은 거예요.</p>
+    <p>그 페이지 안에 글도 쓰고, 사진도 넣고, 표도 만들 수 있어요.</p>
+    <p>페이지가 모이면 사이드바에 목록으로 쭉 보여요.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-title">✏️ 따라해보기 — 첫 페이지 만들기</div>
+    <ol>
+      <li>왼쪽 사이드바 하단 <strong>"+ 새 페이지"</strong> 클릭</li>
+      <li>빈 화면이 열려요 → 제목 자리에 <strong>"나의 첫 노션 페이지"</strong> 입력</li>
+      <li>제목 아래 빈 공간을 클릭하고 아무 글자나 써보세요</li>
+      <li>저장 버튼 따로 없어요. <strong>자동 저장이에요!</strong></li>
+    </ol>
+    <p class="small-note">여기서 또 '+새 페이지'로 다른 페이지를 만들면? 이렇게 페이지가 하나 둘 쌓여가는 거에요.<br> 지금은 잘 이해가 안되도 괜찮아요.<br> 처음엔 개념을 익히겠지만, 결국에 우린 그걸 정리하고 구조화 할 거에요.</p>
+  </div>
+      <div class="tip-box" style="margin-top: 60mm; margin-bottom: 2mm; background-color: #f0f4f8; border-left: 3px solid #4a90e2; padding: 3mm 3.5mm; border-radius: 0 6px 6px 0; font-size: 11px; line-height: 1.5; color: var(--text-main);">
+      💡 <strong>노션 TIP</strong> — 제목 왼쪽 빈 영역을 클릭하면 페이지에 이모지 아이콘을 달 수 있어요.<br> (이모지 덕분에)왼쪽 사이드바에서도 훨씬 쉽게 찾을 수 있어요 (예쁜건 덤)
+    </div>
+</div>
+
+<!-- PAGE 8 Day2 커버 -->
+<div class="page">
+
+  <div class="page-header"><span class="page-label">DAY 2 · 첫 페이지 완성</span><span class="page-num">8 / 26</span></div>
+  <div class="day-badge">📄 Day 2</div>
+  <div class="page-title">커버 이미지로 첫 페이지 꾸미기</div>
+  <div class="page-subtitle">이것만 해도 '나만의 노션' 느낌이 날 거에요😎</div>
+  <div class="why-box">
+    <span class="why-label">커버 이미지(cover image)가 뭔가요?</span>
+    <p>페이지 맨 위에 배경 이미지처럼 깔리는 사진이에요.</p>
+    <p>노션이 기본으로 제공하는 이미지들이 있어서 따로 찾을 필요도 없어요.</p>
+  </div>
+          <!-- 👇 수정해서 보내주신 진짜 이미지 주소 2개로 완벽하게 업데이트 완료했습니다 -->
+    <div class="card-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-bottom: 3mm;">
+      
+      <!-- 예시 1 이미지 박스 (새 주소 반영) -->
+      <div style="background: #ffffff; border: 1px solid var(--cream3); border-radius: 8px; padding: 2mm; box-sizing: border-box;">
+        <div style="font-size: 9px; color: var(--text-lt); margin-bottom: 1.5mm; font-weight: 700; text-align: center;">📸 예시 1</div>
+        <img src="https://i.imgur.com/4pUVS3E.jpeg" alt="업데이트 예시 1" style="width: 100%; height: auto; object-fit: contain; border-radius: 4px; display: block; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+      </div>
+      
+      <!-- 예시 2 이미지 박스 (새 주소 반영) -->
+      <div style="background: #ffffff; border: 1px solid var(--cream3); border-radius: 8px; padding: 2mm; box-sizing: border-box;">
+        <div style="font-size: 9px; color: var(--text-lt); margin-bottom: 1.5mm; font-weight: 700; text-align: center;">📸 예시 2</div>
+        <img src="https://i.imgur.com/dnYfvt5.jpeg" alt="업데이트 예시 2" style="width: 100%; height: auto; object-fit: contain; border-radius: 4px; display: block; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+      </div>
+
+    </div>
+
+
+  <div class="step-box">
+    <div class="step-title">✏️ 따라해보기 — 커버 + 아이콘 달기</div>
+    <ol>
+      <li>어제 만든 페이지 제목 위쪽에 마우스 올리기 → <strong>"커버 추가"</strong> 버튼 등장</li>
+      <li><strong>"커버 추가"</strong> 클릭 → 노션 기본 이미지 선택 또는 내 사진 업로드</li>
+      <li>제목 왼쪽 영역 클릭 → <strong>"아이콘 추가"</strong> → 마음에 드는 이모지 선택</li>
+      <li>사이드바에서 이모지가 페이지 이름 옆에 보이는 거 확인!</li>
+    </ol>
+  </div>
+  <div class="day-complete">🎉 Day 2 완료! 나만의 첫 페이지가 생겼어요. 내일은 블록이 뭔지 배우고, 슬래시(/) 명령어로 다양한 블록을 만들어볼 거예요.</div>
+  <ul class="checklist">
+    <li><span class="check-box"></span>첫 페이지 만들기 완료</li>
+    <li><span class="check-box"></span>커버 이미지 달기 완료</li>
+    <li><span class="check-box"></span>이모지 아이콘 달기 완료</li>
+  </ul>
+</div>
+
+<!-- PAGE 9 Day3 페이지vs블록 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 3 · 페이지 VS 블록</span><span class="page-num">9 / 26</span></div>
+  <div class="day-badge">🧱 Day 3</div>
+  <div class="page-title">페이지 vs 블록</div>
+  <div class="page-subtitle">이거 이해하면 노션의 절반은 이해한 거예요</div>
+  <div class="day-complete" style="margin-bottom:4mm">우리 노션대학 학습지에서는 <strong>블록 → 페이지</strong> 순으로 따라올게요 😊</div>
+  <div class="why-box">
+    <span class="why-label">이렇게 생각하면 쉬워요</span>
+    <p><strong>페이지</strong>는 공책의 한 장이에요. (문서, 노트, 공책 등등 이라고도 불러요)</p>
+    <p><strong>블록</strong>은 그 장 위에 쓴 글, 붙인 사진, 그린 표 등등 이예요.</p>
+    <p style="line-height:1.8">노션의 모든 내용은 블록으로 이루어져 있어요. <span style="text-decoration:underline;text-decoration-color:var(--brown);text-decoration-thickness:2px;text-underline-offset:4px;">텍스트 한 줄도 블록, 사진도 블록, 표도 블록, 데이터베이스라고 불리는 것도 블록이에요.</span></p>
+    <p style="margin-top:1.5mm">말그대로 다 블록이에요. 그래서 노션을 '레고'에 비유하는 분들도 꽤 있어요.<br> 귀엽지 않나요? 😄</p>
+  </div>
+      <div class="card-grid">
+      
+      <div class="card">
+        <div style="display: flex; align-items: center; gap: 1.5mm; margin-bottom: 1.5mm;">
+          <span class="card-icon">📄</span>
+          <div class="card-name" style="margin: 0; font-weight: 700;">페이지 (Page)</div>
+        </div>
+        <div class="card-desc">하나의 문서 공간.<br>왼쪽 사이드바에서 목록으로 보여요.</div>
+      </div>
+      
+      <div class="card">
+        <div style="display: flex; align-items: center; gap: 1.5mm; margin-bottom: 1.5mm;">
+          <span class="card-icon">🧱</span>
+          <div class="card-name" style="margin: 0; font-weight: 700;">블록 (Block)</div>
+        </div>
+        <div class="card-desc">페이지 안의 모든 요소.<br>글, 사진, 표, 체크박스 다 블록!</div>
+      </div>
+
+    </div>
+
+      <div class="why-box" style="margin-bottom: 0; padding-top: 4mm; padding-bottom: 4mm;">
+      <span class="why-label" style="font-size: 13.5px; font-weight: 800; color: var(--brown-dk); display: inline-block; margin-bottom: 3mm; letter-spacing: -0.3px;">💡 블록의 진짜 힘</span>
+
+    <p>블록은 드래그해서 순서를 바꿀 수 있어요. (단축키로도 가능)</p>
+    <p>'이게 저기로 가면 좋겠는데'라는 생각이 들면, 블록 덩어리채 옮기면 돼요.</p>
+    <p>블록 왼쪽에 <strong>⠿ 아이콘</strong>을 잡고 드래그해보세요!<br>(단축키 alt+shift+방향키 위/아래키)
+  </div>
+</div>
+
+<!-- PAGE 10 Day3 슬래시 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 3 · 슬래시 명령어</span><span class="page-num">10 / 26</span></div>
+  <div class="day-badge">🧱 Day 3</div>
+  <div class="page-title">블록 만드는 마법 — 슬래시 /</div>
+  <div class="page-subtitle">이거 하나만 알면 웬만한 블록은 다 만들 수 있어요</div>
+  <div class="why-box">
+    <span class="why-label">슬래시가 뭔가요?</span>
+    <p><strong>노션 페이지</strong>에서 키보드의 '/(슬래시)' 를 입력하면 팝업처럼 메뉴가 뜨고,</p>
+    <p>원하는 블록 종류를 고를 수 있어요. 마치 '명령어'처럼요.<br> (실제로 블록을 추가하는 단축키에요)</p>
+  </div>
+  <div class="step-box">
+    <div class="step-title">✏️ 따라해보기 — 슬래시 명령어로 블록 만들기</div>
+    <ol>
+      <li>어제 만든 페이지를 열어요</li>
+      <li>빈 줄에서 키보드로 <strong>/</strong> 입력 → 메뉴가 떠요!</li>
+      <li><strong>/h1</strong> 입력 → Enter → 큰 제목 블록 생성!</li>
+      <li><strong>/todo</strong> 입력 → Enter → 체크박스 블록 생성!</li>
+      <li><strong>/callout</strong> 입력 → Enter → 이모지 강조 박스 생성!</li>
+      <li>블록 왼쪽 <strong>⠿ 아이콘</strong>을 잡고 드래그 → 순서 바꾸기!</li>
+    </ol>
+  </div>
+      <div class="tip-box" style="margin-top: 60mm; margin-bottom: 0mm; background-color: #f0f4f8; border-left: 3px solid #4a90e2; padding: 3mm 3.5mm; border-radius: 0 6px 6px 0; font-size: 10.5px; line-height: 1.5; color: var(--text-main);">
+      💡 <strong>노션 TIP</strong> — /를 입력하고 찾고 싶은 블록 이름을 바로 타이핑해도 돼요. 예: /이미지, /표, /동영상
+    </div>
+</div>
+
+<!-- PAGE 11 Day3 다양한블록 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 3 · 다양한 블록 삽입</span><span class="page-num">11 / 26</span></div>
+  <div class="day-badge">🧱 Day 3</div>
+  <div class="page-title">다양한 블록 불러오기</div>
+  <div class="page-subtitle">글 뿐만 아니라 이미지, 영상, 링크도 다 블록으로 넣을 수 있어요</div>
+  <h3 class="sub-title">텍스트 계열 블록</h3>
+  <div class="block-showcase">
+    <div class="block-item"><div class="bi-cmd"># /h1</div><div class="bi-name">큰 제목</div><div class="bi-desc">페이지 대제목. 가장 크게 표시돼요.</div></div>
+    <div class="block-item"><div class="bi-cmd">## /h2</div><div class="bi-name">중간 제목</div><div class="bi-desc">섹션 구분할 때. h1보다 작아요.</div></div>
+    <div class="block-item"><div class="bi-cmd">☑️ /todo</div><div class="bi-name">할 일 목록</div><div class="bi-desc">체크박스! 클릭하면 완료 표시돼요.</div></div>
+    <div class="block-item"><div class="bi-cmd">🌫️ /callout</div><div class="bi-name">콜아웃</div><div class="bi-desc">이모지 + 배경색 박스. 눈에 확 띄어요.</div></div>
+  </div>
+  <h3 class="sub-title">미디어 계열 블록</h3>
+  <div class="block-showcase">
+    <div class="block-item"><div class="bi-cmd">🖼️ /이미지</div><div class="bi-name">이미지</div><div class="bi-desc">직접 업로드 또는 URL로 삽입해요.</div></div>
+    <div class="block-item"><div class="bi-cmd">▶ /동영상</div><div class="bi-name">동영상</div><div class="bi-desc">유튜브 링크 붙여넣으면 바로 재생!</div></div>
+  </div>
+  <div class="why-box" style="margin-bottom:4mm">
+    <span class="why-label">유튜브 영상 임베드 해보기</span>
+    <p>유튜브 링크를 노션에 붙여넣으면 <strong>"임베드로 붙여넣기"</strong>라는 옵션이 나와요.</p>
+    <p>클릭하면 <strong>페이지 안에서 바로 재생</strong>되는 영상 블록이 생겨요!</p>
+  </div>
+  <ul class="checklist">
+    <li><span class="check-box"></span>슬래시(/) 명령어로 블록 만들어봤어요</li>
+    <li><span class="check-box"></span>체크박스 블록 만들고 클릭해봤어요</li>
+    <li><span class="check-box"></span>블록을 드래그로 순서 바꿔봤어요</li>
+  </ul>
+</div>
+
+<!-- PAGE 12 Day3 마무리 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 3 · 마무리</span><span class="page-num">12 / 26</span></div>
+  <div class="day-badge">🧱 Day 3</div>
+  <div class="page-title">Day 3 마무리 체크</div>
+  <div class="page-subtitle">오늘 배운 것 확인해요</div>
+  <div class="day-complete" style="margin-bottom:5mm">페이지와 블록의 차이, 슬래시 명령어, 다양한 블록 타입까지! 오늘 꽤 많이 했어요.</div>
+  <ul class="checklist" style="margin-bottom:5mm">
+    <li><span class="check-box"></span>블록이 뭔지 이해했어요</li>
+    <li><span class="check-box"></span>/h1, /h2, /todo, /callout 써봤어요</li>
+    <li><span class="check-box"></span>블록을 드래를하여 순서를 바꿔봤어요</li>
+    <li><span class="check-box"></span>이미지 또는 유튜브 영상 블록을 넣어봤어요</li>
+  </ul>
+ 
+    <!-- 👇 테마 규칙에 맞춰 파란색을 빼고, 따뜻한 크림 갈색 박스로 전면 수정 완료했습니다 -->
+        <!-- 👇 margin-top을 60mm로 더 확장하여 페이지 아랫바닥에 바짝 붙도록 밀어냈습니다 -->
+    <div class="day-complete" style="margin-top: 100mm; margin-bottom: 2mm; background-color: var(--cream2); border-radius: 6px; padding: 3.5mm 4mm; font-size: 10.5px; line-height: 1.5; color: var(--brown-dk); font-weight: 500;">
+      내일은 텍스트를 더 예쁘게 꾸미는 법을 배워볼거에요 🎨<br>같은 내용도 정돈되면 다시 열고 싶어진다는 거, 직접 느껴보실 거예요!
+    </div>
+
+</div>
+
+<!-- PAGE 13 Day4 글자꾸미기 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 4 · 글자 꾸미기</span><span class="page-num">13 / 26</span></div>
+  <div class="day-badge">🎨 Day 4</div>
+  <div class="page-title">글자 꾸미기 — 인라인 서식</div>
+  <div class="page-subtitle">같은 내용도 정돈되면 다시 열고 싶어져요</div>
+  <div class="why-box">
+    <span class="why-label">왜 꾸며야 할까요?</span>
+    <p>꾸미지 않은 노션 페이지는 글이 다닥다닥 붙어있어서 읽기 힘들어요.</p>
+    <p><strong>굵게, 색상, 구분선</strong> 세 가지만 써도 "정리된 페이지" 느낌이 확 살아나요.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-title">✏️ 따라해보기 — 글자 꾸미기</div>
+    <ol>
+      <li>텍스트를 드래그해서 선택</li>
+      <li>위에 작은 툴바가 떠요 → <strong>B</strong>(굵게), <em>I</em>(기울임), <u>U</u>(밑줄) 클릭</li>
+      <li>툴바에서 <strong>A 아이콘</strong> 클릭 → 글자색 또는 배경색 선택</li>
+      <li>단축키도 있어요 — <strong>Ctrl(Cmd)+B</strong> 굵게, <strong>Ctrl(Cmd)+I</strong> 기울임</li>
+    </ol>
+  </div>
+          <div class="screenshot my-shot" style="width: 100%; border: 1.5px dashed var(--cream3); background-color: #ffffff; border-radius: 8px; padding: 4mm 4mm 3mm 4mm; box-sizing: border-box; margin-bottom: 4mm;">
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; align-items: stretch;">
+        
+        <div style="background: #ffffff; border: 1px solid var(--cream2); border-radius: 4px; overflow: hidden; height: 46mm; display: flex; align-items: center; justify-content: center;">
+          <img src="https://i.imgur.com/xl2PCh5.jpeg" alt="글자 꾸미기 툴바" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        
+        <div style="background: #ffffff; border: 1px solid var(--cream2); border-radius: 4px; overflow: hidden; height: 46mm; display: flex; align-items: center; justify-content: center;">
+          <img src="https://i.imgur.com/HPS7btW.jpeg" alt="글자 꾸미기 색상표" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+
+      </div>
+    </div> <!-- 💡 610행: 이전 구역(screenshot my-shot)을 안전하게 마감합니다 -->
+
+    <!-- 
+      ========================================================================
+      ✨ [정밀 교정] 하젤님이 원하시는 원래 학습지 스타일의 '실습 과제' 박스입니다
+      ========================================================================
+    -->
+    <div class="step-box" style="margin-top: 6mm; margin-bottom: 2mm; width: 100%; box-sizing: border-box;">
+      <div class="step-title" style="margin-top: 0; margin-bottom: 2.5mm;">📝 실습</div>
+      <p style="margin-top: 0; margin-bottom: 0; font-size: 11px; line-height: 1.5; color: var(--text-main);">
+        오늘 할 일 3가지를 써보고, 각각 다른 스타일(굵게 / 기울임 / 글자색)로 꾸며봐요!
+      </p>
+    </div>
+
+</div> <!-- 💡 기존 PAGE 13의 모든 베이스 프레임을 완벽하게 닫아내어 뒷장 침범을 완전히 차단합니다 -->
+
+<!-- PAGE 14 Day4 블록꾸미기 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 4 · 블록 꾸미기</span><span class="page-num">14 / 26</span></div>
+  <div class="day-badge">🎨 Day 4</div>
+  <div class="page-title">블록 단위로 꾸미기</div>
+  <div class="page-subtitle">콜아웃, 인용, 구분선으로 페이지에 구조를 만들어요</div>
+  <div class="block-showcase">
+    <div class="block-item"><div class="bi-cmd">📢 /callout</div><div class="bi-name">콜아웃</div><div class="bi-desc">이모지 + 배경 박스. 중요한 내용 강조할 때!</div></div>
+    <div class="block-item"><div class="bi-cmd">❝ /quote</div><div class="bi-name">인용</div><div class="bi-desc">왼쪽에 선이 생겨요. 메모에 무게감을 줄 때.</div></div>
+    <div class="block-item"><div class="bi-cmd">— /divider</div><div class="bi-name">구분선</div><div class="bi-desc">섹션 나눌 때. 얇은 가로선이 생겨요.</div></div>
+    <div class="block-item"><div class="bi-cmd">▶ /toggle</div><div class="bi-name">토글</div><div class="bi-desc">클릭하면 내용이 접히고 펼쳐져요. 깔끔!</div></div>
+  </div>
+  <div class="step-box">
+    <div class="step-title">✏️ 실습 — 내 소개 페이지 정리해보기</div>
+    <ol>
+      <li>새 페이지 만들고 제목: <strong>"나에 대해서"</strong></li>
+      <li>/h1 으로 큰 제목 <strong>"자기소개"</strong> 입력</li>
+      <li>/callout 으로 <strong>"나의 한마디"</strong> 입력 (이모지도 바꿔봐요!)</li>
+      <li>/divider 로 구분선 추가</li>
+      <li>/todo 로 <strong>"이번 달 목표"</strong> 체크리스트 3개 작성</li>
+    </ol>
+        </div> </div> <div class="page" style="background-color: #fff9f5; min-height: 297mm; padding: 12mm; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; position: relative; margin-bottom: 8mm; box-shadow: none;">
+  
+  <div class="independent-showcase" style="width: 100%; border: 2.5px solid #55A380; background-color: #F4F9F6; border-radius: 12px; padding: 5mm; box-sizing: border-box;">
+    
+    <div style="font-size: 11px; color: #2D5A44; font-weight: 700; text-align: center; margin-bottom: 3.5mm; letter-spacing: -0.2px;">
+      🚀 나의 노션 포트폴리오 — 자기소개서 페이지 실습 완성본
+    </div>
+    
+    <div style="background: #ffffff; border: 1px solid #e2ece7; border-radius: 6px; overflow: hidden; width: 100%;">
+      <img src="https://i.imgur.com/HbRjjMP.jpeg" alt="Who is 하젤 자기소개서 완성본" style="width: 100%; height: auto; display: block;">
+    </div>
+
+    <div style="font-size: 9.5px; color: #5A6A61; text-align: center; margin-top: 3.5mm; line-height: 1.5; font-weight: 500;">
+      콜아웃, 구분선, 체크리스트를 활용하여 커스텀한 나만의 첫 독립 프로필 홈 화면
+    </div>
+
+  </div>
+
+    </div>
+<!-- PAGE 15 Day4 페이지꾸미기 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 4 · 나만의 페이지 꾸미기</span><span class="page-num">15 / 26</span></div>
+  <div class="day-badge">🎨 Day 4</div>
+  <div class="page-title">나만의 페이지 꾸미기</div>
+  <div class="page-subtitle">커버 이미지 + 아이콘으로 나만의 페이지 느낌을 살려요</div>
+  <div class="why-box">
+    <span class="why-label">커버랑 아이콘이 왜 중요해요?</span>
+    <p>노션 페이지는 제목만 있으면 조금 밋밋해 보여요. 우리가 아는 그 '메모장'처럼요.</p>
+    <p>커버 이미지를 달면 마치 <strong>잡지 표지처럼</strong> 페이지에 분위기가 생겨요.</p>
+    <p>그리고 사이드바에서도 <strong>이모지</strong> 아이콘이 보여서 훨씬 찾기 쉬워져요.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-title">✏️ 실습 — 내 첫 페이지에 커버 + 아이콘 달아보기</div>
+    <ol>
+      <li>Day 2에서 만든 페이지 열기</li>
+      <li>제목 위에 마우스 올리기 → <strong>"커버 추가"</strong> 클릭</li>
+      <li>노션 기본 제공 이미지 중 마음에 드는 것 선택<span style="font-size:11.5px;color:var(--text-lt)"> (직접 업로드도 가능해요!)</span></li>
+      <li>제목 왼쪽 빈 영역 클릭 → <strong>"아이콘 추가"</strong> → 이모지 선택</li>
+      <li>완성! 사이드바에서 이모지가 페이지 옆에 보이는지 확인</li>
+    </ol>
+  </div>
+  <div class="day-complete">💪 Day 4 완료!<br>이제 노션 페이지를 제법 그럴듯하게 만들 수 있어요. 내일은 페이지 안에 페이지를 넣어서 페이지로 "구조화"를 해볼거에요 📁</div>
+  <ul class="checklist">
+    <li><span class="check-box"></span>굵게·기울임·색상 써봤어요</li>
+    <li><span class="check-box"></span>콜아웃+구분선으로 내 소개 페이지 꾸며봤어요</li>
+    <li><span class="check-box"></span>커버 이미지 + 이모지 아이콘 달아봤어요</li>
+  </ul>
+</div>
+
+<!-- PAGE 16 Day5 페이지구조화 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 5 · 페이지 구조화</span><span class="page-num">16 / 26</span></div>
+  <div class="day-badge">📁 Day 5</div>
+  <div class="page-title">페이지 안의 페이지</div>
+  <div class="page-subtitle">노션에는 폴더가 없어요. 대신 이걸 써요.</div>
+  <div class="why-box">
+    <span class="why-label">컴퓨터 폴더 VS 노션 페이지</span>
+    <p>컴퓨터에서는 폴더 안에 파일을 담아요.</p>
+    <p>노션에는 따로 폴더가 없어요. 대신 <strong>페이지 안에 또 다른 페이지를 넣으면</strong> 폴더처럼 구조를 잡을 수 있어요.</p>
+    <p style="margin-top:1.5mm">컴퓨터 폴더가 파일을 담는 것처럼, 노션 페이지는 다른 페이지를 담을 수 있어요.</p>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card left"><span class="cc-icon">📂</span><div class="cc-title">컴퓨터 폴더</div><div class="cc-desc">폴더 안에 파일을 담아요. 파일과 폴더가 별개예요.</div></div>
+    <div class="compare-card right"><span class="cc-icon"><span><div style="width: 25px; height: 25px; background-color: #ffffff; border: 1.2px solid #000000; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 900; color: #000000; line-height: 1; flex-shrink: 0; box-sizing: border-box; padding-bottom: 0.5px;">N</div></span><div class="cc-title">노션 페이지</div><div class="cc-desc">페이지 자체가 폴더예요. 안에 또 다른 페이지를 넣으면 돼요.</div></div>
+  </div>
+  <div class="step-box">
+    <div class="step-title">✏️ 따라해보기 — 서브 페이지 만들기</div>
+    <ol>
+      <li>새 페이지 만들고 제목: <strong>"내 대학생활"</strong> (나에게 맞는 이름으로)</li>
+      <li>페이지 안에서 <strong>/page</strong> 입력 → Enter</li>
+      <li>서브 페이지 이름: <strong>"수업 노트"</strong> 입력</li>
+      <li>같은 방식으로 <strong>"과제"</strong>, <strong>"동아리"</strong> 서브 페이지 2개 더 만들기</li>
+      <li>사이드바에서 들여쓰기된 페이지들 확인!</li>
+    </ol>
+  </div>
+</div>
+
+<!-- PAGE 17 Day5 계층구조 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 5 · 계층 구조</span><span class="page-num">17 / 26</span></div>
+  <div class="day-badge">📁 Day 5</div>
+  <div class="page-title">나만의 구조 만들어보기</div>
+  <div class="page-subtitle">폴더처럼 — 계층 구조를 잡으면 나중에 바로바로 찾을 수 있어요</div>
+  <h3 class="sub-title">예시 구조 (왼쪽 사이드바에서 보이는 형태)</h3>
+  <div class="tree">
+    <div class="t-main">📄 내 대학생활 (메인 페이지)</div>
+    <div class="t-sub">└ 📄 수업 노트</div>
+    <div class="t-sub2">└ 📄 2026년 1학기</div>
+    <div class="t-sub2">└ 📄 2026년 2학기</div>
+    <div class="t-sub">└ 📄 과제</div>
+    <div class="t-sub2">└ 📄 중간고사 준비</div>
+    <div class="t-sub">└ 📄 동아리</div>
+  </div>
+  <div class="why-box">
+    <span class="why-label">이게 왜 좋아요?</span>
+    <p>나중에 "수업 노트 어디갔지?" 할 때 사이드바에서 바로 찾을 수 있어요.</p>
+    <p>처음엔 <strong>2~3개 큰 카테고리만 만들어도 충분</strong>해요. 나중에 언제든 추가하고 바꿀 수 있어요.</p>
+  </div>
+      <!-- 👇 위쪽 상자와의 간격을 넓히고(margin-top), 하단 페이지 바닥선과 단정하게 밀착되도록 조정했습니다 -->
+    <div class="tip-box" style="margin-top: 80mm; margin-bottom: 2mm;">
+      💡 <strong>노션 TIP</strong> — 사이드바에서 페이지를 드래그해서 순서를 바꾸거나 다른 페이지 안으로 옮길 수도 있어요!
+    </div>
+
+</div>
+
+<!-- PAGE 18 Day5 멘션 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 5 · 멘션으로 연결하기</span><span class="page-num">18 / 26</span></div>
+  <div class="day-badge">📁 Day 5</div>
+  <div class="page-title">페이지끼리 연결하기 — 멘션</div>
+  <div class="page-subtitle">@를 입력하면 다른 페이지로 바로 이동하는 링크를 만들 수 있어요</div>
+      <!-- 👇 756행 시작: [상자 1] '멘션이 뭔가요?' 구역을 독립된 단정한 화이트 카드로 분리했습니다 -->
+    <div class="why-box" style="width: 100%; border: 1px solid var(--cream3); background-color: #ffffff; border-radius: 8px; padding: 4.5mm; box-sizing: border-box; margin-bottom: 5mm;">
+      <span class="why-label" style="font-size: 13px; font-weight: 800; color: var(--brown-dk); display: inline-block; margin-bottom: 2.5mm;">멘션이 뭔가요?</span>
+      <p style="margin: 0 0 2mm 0; font-size: 11px; line-height: 1.5; color: var(--text-main);">인스타그램에서 @누군가 하면 그 사람 프로필로 가죠?</p>
+      <p style="margin: 0 0 2mm 0; font-size: 11px; line-height: 1.5; color: var(--text-main);">노션에서도 <strong>@를 입력하면</strong> 다른 페이지로 이동하는 링크가 생겨요.</p>
+      <p style="margin: 0; font-size: 11px; line-height: 1.5; color: var(--text-main);">페이지에서 자주 쓰는 페이지를 멘션으로 연결해두면 바로바로 이동할 수 있어요. 보통 메인페이지에 서브페이지들을 연결시켜놓고 바로 이동하는 용도로 많이 사용되요.</p>
+    </div>
+
+    <!-- 👇 [상자 2] '따라해보기 가이드 + 스샷 2컬럼' 구역을 완전히 독립된 테두리 박스로 뺐습니다 -->
+    <div class="step-box" style="width: 100%; border: 1.5px solid var(--cream3); background-color: #ffffff; border-radius: 8px; padding: 4.5mm; box-sizing: border-box; margin-bottom: 4mm;">
+      
+      <!-- 좌우 2컬럼 배치 레이아웃 -->
+      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4mm; align-items: start;">
+        
+        <!-- 👈 왼쪽 컬럼: 따라해보기 순서 가이드 -->
+        <div style="width: 100%;">
+          <div class="step-title" style="margin-top: 0; font-size: 12px; font-weight: 800; color: var(--brown-dk); margin-bottom: 2.5mm;">🛠️ 따라해보기 — 멘션 링크 만들기</div>
+        <ol style="margin: 0; padding-left: 5mm; font-size: 9.5px; line-height: 1.5; color: var(--text-main);"> <!-- 💡 폰트 사이즈를 10.5px에서 9.5px로 줄여 가독성을 높였습니다 -->
+            <li style="margin-bottom: 1mm;">메인 페이지("내 대학생활")를 열기</li>
+            <li style="margin-bottom: 1mm;">빈 줄에서 <strong>@ 입력</strong> → 검색창 등장</li>
+            <li style="margin-bottom: 1mm;"><strong>"수업 노트"</strong> 검색 → 선택하면 링크 블록 생성!</li>
+            <li style="margin-bottom: 0;">링크 클릭 → 해당 페이지로 바로 이동 확인!</li>
+          </ol>
+        </div>
+
+        <!-- 👉 오른쪽 컬럼: 파란색 실습 완성 스샷 박스 -->
+        <div class="screenshot user-shot" style="width: 100%; border: 1.5px dashed #4a90e2; background-color: #f0f4f8; border-radius: 8px; padding: 2.5mm; box-sizing: border-box; margin-top: 0;">
+          <!-- 내부 이미지 프레임 -->
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; width: 100%;">
+            <img src="https://i.imgur.com/ffqy2KF.jpeg" alt="멘션 링크 실습 완성본" style="width: 100%; height: auto; display: block;">
+          </div>
+          <!-- 하단 캡션 설명 -->
+          <div class="shot-desc" style="font-size: 9px; color: #4a5568; text-align: center; margin-top: 2mm; line-height: 1.3;">
+            @ 입력 후 검색창 + 멘션 링크 화면
+          </div>
+        </div>
+
+      </div> <!-- 그리드 끝 -->
+
+    </div> <!-- step-box 마감 -->
+
+
+  <div class="day-complete">💡 여기까지 하면 <strong>"내 공간이 생겼다"</strong>는 느낌이 와요.<br>내일은 이 공간의 현관문인 홈 페이지를(메인페이지) 완성해봐요!</div>
+  <ul class="checklist">
+    <li><span class="check-box"></span>서브 페이지 만들기 완료</li>
+    <li><span class="check-box"></span>사이드바에서 계층 구조 확인 완료</li>
+    <li><span class="check-box"></span>멘션(@)으로 페이지 링크 달기 완료</li>
+  </ul>
+</div>
+
+<!-- PAGE 19 Day6 홈이란 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 6 · 내 노션 홈</span><span class="page-num">19 / 26</span></div>
+  <div class="day-badge">🏠 Day 6</div>
+  <div class="page-title">내 노션 홈(대시보드) 만들기</div>
+  <div class="page-subtitle">노션을 켰을 때 제일 먼저 보이는 내 공간이 생깁니다</div>
+  <div class="why-box">
+    <span class="why-label">홈 페이지가 왜 필요해요?</span>
+    <p>노션을 켤 때마다 "어디서부터 시작하지?" 하면서 결국 안 쓰게 되더라고요.</p>
+    <p>홈 페이지를 만들어두면 <strong>노션을 열자마자 오늘 할 일이 보이고</strong>, 자주 쓰는 페이지로 바로 이동가능하게 만들 수 있어요. -- 네비게이션 역할</p>
+    <p>내 노션의 현관문 같은 거예요.</p>
+  </div>
+  <h3 class="sub-title">홈 페이지에 넣으면 좋은 것들</h3>
+  <ul class="checklist">
+    <li><span class="check-box"></span>나를 소개하는 한 줄 + 이모지 (인생 모토)</li>
+    <li><span class="check-box"></span>오늘의 한마디 or 목표 한 줄 (/callout으로 정돈시키기)</li>
+    <li><span class="check-box"></span>오늘 할 일 체크리스트 (/todo)</li>
+    <li><span class="check-box"></span>Day 5에서 만든 하위 페이지들 — 멘션 링크(@)로 홈에 모아두기</li>
+<!-- 👇 위쪽 상자와의 간격을 넓히고(margin-top), 하단 페이지 바닥선과 단정하게 밀착되도록 조정했습니다 -->
+    <div class="tip-box" style="margin-top: 70mm; margin-bottom: 2mm;">
+      💡 <strong>노션 TIP</strong> — 홈 페이지를 즐겨찾기에 추가하면 사이드바 맨 위에 고정돼요.<br>페이지 오른쪽 상단 위 <strong>…</strong> 클릭 → "즐겨찾기에 추가"!
+    </div>
+</div>
+
+<!-- PAGE 20 Day6 실습 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 6 · 홈 만들기 실습</span><span class="page-num">20 / 26</span></div>
+  <div class="day-badge">🏠 Day 6</div>
+  <div class="page-title">홈 페이지 만들기 실습</div>
+  <div class="page-subtitle">지금까지 배운 모든 걸 써볼 시간이에요</div>
+  <div class="step-box">
+    <div class="step-title">✏️ 따라해보기 — 내 홈 페이지 완성하기</div>
+    <ol>
+      <li>새 페이지 만들고 타이틀 작성 <strong>"나의 노션 홈"</strong></li>
+      <li>커버 이미지 + 이모지 아이콘 달기 (Day 4에서 배운 것) <strong>"🏠 나의 노션 홈"</strong></li>
+      <li>/callout → "오늘의 한마디" 또는 내 목표 한 줄 적기</li>
+      <li>/h2 → <strong>"오늘 할 일"</strong> 제목 → /todo 로 <strong>체크리스트</strong> 3개 작성</li>
+      <li>/divider 로 구분선 추가</li>
+      <li>/divider → /h2 → <strong>"내 페이지들"</strong> → @멘션으로 Day 5에서 만든 페이지 2~3개 연결</li>
+    </ol>
+  </div>
+     <!-- 👇 848행 시작: 파란색을 완전히 제거하고 교재 고유의 단정한 갈색 점선 스타일로 최종 보정했습니다 -->
+    <div class="screenshot user-shot" style="width: 100%; border: 1.5px dashed var(--cream3); background-color: #ffffff; border-radius: 8px; padding: 4mm; box-sizing: border-box; margin-top: 5mm; margin-bottom: 4mm;">
+      
+      <!-- 상단 배지 라벨 -->
+      <div class="shot-badge" style="font-size: 10.5px; color: var(--brown-dk); font-weight: 700; text-align: center; margin-bottom: 3mm; letter-spacing: -0.2px;">
+        📸 대시보드 예제
+      </div>
+      
+      <!-- 💡 고정 높이 없이 새로 주신 홈 화면 완성본 스샷이 원본 비율 그대로 단정하게 노출됩니다 -->
+      <div style="background: #ffffff; border: 1px solid var(--cream2); border-radius: 4px; overflow: hidden; width: 100%;">
+        <img src="https://i.imgur.com/N0kMRyI.jpeg" alt="완성된 내 홈 페이지" style="width: 100%; height: auto; display: block;">
+      </div>
+
+      <!-- 하단 설명 서식 -->
+      <div class="shot-desc" style="font-size: 9.5px; color: var(--text-lt); text-align: center; margin-top: 3mm; line-height: 1.45;">
+      </div>
+
+    </div> <!-- 💡 캡처본 상자(user-shot) 마감 -->
+
+  </div> <!-- 💡 상위 step-box 상자가 여기서 안전하게 마감됩니다 -->
+
+<!-- PAGE 21 Day6 마무리 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 6 · 마무리</span><span class="page-num">21 / 26</span></div>
+  <div class="day-badge">🏠 Day 6</div>
+  <div class="page-title">Day 6 마무리</div>
+  <ul class="checklist" style="margin-bottom:5mm">
+    <li><span class="check-box"></span>나만의 노션 홈 새로 만들기 완료</li>
+    <li><span class="check-box"></span>커버 + 아이콘으로 노션 꾸미기 완료</li>
+    <li><span class="check-box"></span>콜아웃으로 오늘의 한마디 적기 완료</li>
+    <li><span class="check-box"></span>할 일 체크리스트 만들기 완료</li>
+    <li><span class="check-box"></span>멘션으로 자주 쓰는 페이지 연결 완료</li>
+  </ul>
+  <div class="day-complete" style="margin-bottom:5mm">🦉 Day 6 완료! 노션을 열면 이제 내가 만든 대시보드가 나를 반겨줄거에요.<br>내일은 마지막 날! 나에게 맞는 전공을 찾고 노션대학에서 더욱 심도있게 배워봐요 🎓</div>
+  <div class="recap-box">
+    <div class="recap-title">7일 동안 무엇을 배웠는지 잠시 돌아봐요</div>
+    <div class="recap-row">Day 1: 노션 계정 만들고 첫 화면 이해</div>
+    <div class="recap-row">Day 2: 첫 페이지 + 커버/아이콘</div>
+    <div class="recap-row">Day 3: 블록 개념 + 슬래시 명령어</div>
+    <div class="recap-row">Day 4: 텍스트 꾸미기 + 커버 + 내 소개 페이지</div>
+    <div class="recap-row">Day 5: 페이지 구조화 + 멘션 연결</div>
+    <div class="recap-row">Day 6: 내 노션 홈 만들기 완성</div>
+    <div class="recap-row" style="color:var(--brown);font-weight:700">→ 내일 Day 7: 전공 선택 + 입학!</div>
+  </div>
+</div>
+
+<!-- PAGE 22 Day7 전공찾기 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 7 · 내 전공 찾기</span><span class="page-num">22 / 26</span></div>
+  <div class="day-badge">🎓 Day 7 — 마지막 날!</div>
+  <div class="page-title">내 전공 찾기</div>
+  <div class="page-subtitle">노션을 왜 쓰고 싶은지에 따라 전공이 달라져요</div>
+  <div class="why-box">
+    <span class="why-label">전공이 왜 있어요?</span>
+    <p>사람마다 노션을 쓰는 목적이 달라요.</p>
+    <p>일상을 기록하려는 사람, 업무를 정리하려는 사람, 시간을 관리하려는 사람...</p>
+    <p>전공을 선택하면 <strong>나에게 맞는 커리큘럼으로</strong> 필요되는 내용만 배울 수 있어요.</p>
+  </div>
+  <div class="card-grid">
+    <div class="card"><span class="card-icon">📖</span><div class="card-name">기록러 전공</div><div class="card-desc">일상·독서·습관·회고를 기록하고 싶어요.<br>라이프 대시보드 구축.</div></div>
+    <div class="card"><span class="card-icon">💼</span><div class="card-name">일잘러 전공 <span style="font-size:10px;color:var(--text-lt);font-weight:700;">26.06 첫 오픈!</span></div><div class="card-desc">프리랜서·직장인·크리에이터 등<br>업무 시스템 만들기.</div></div>
+    <div class="card"><span class="card-icon">🏢</span><div class="card-name">팀빌더 전공</div><div class="card-desc">우리 팀에 노션을 도입하고 싶어요.<br>협업 시스템 구축.</div></div>
+    <div class="card"><span class="card-icon">📚</span><div class="card-name">학습러 전공</div><div class="card-desc">공부를 체계적으로 관리하고 싶어요.<br>학습 시스템 구축.</div></div>
+  </div>
+</div>
+
+<!-- PAGE 23 Day7 입학 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 7 · 노션대학 입학</span><span class="page-num">23 / 26</span></div>
+  <div class="day-badge">🎓 Day 7</div>
+  <div class="page-title">노션대학 1학년 입학하기</div>
+  <div class="page-subtitle">7일 챌린지는 오리엔테이션, 몸풀기였습니다. 노션의 진짜 시작은 지금부터예요!</div>
+  <div class="day-complete" style="margin-bottom:4mm">🎓 <strong>노션대학 1학기: 2026년 6월 시작</strong><br><span style="font-size:12px;font-weight:400">4개 전공 중 하나를 선택하고, 1학년부터 4학년까지 차근차근 나만의 노션 시스템을 완성해가요.</span></div>
+  <h3 class="sub-title">노션대학 4년 학년제</h3>
+  <div class="grade-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:5mm;">
+    <div class="grade-card" style="margin:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:2mm;"><div class="grade-num">1</div><div class="grade-name" style="margin:0;">1학년</div></div><div class="card-desc">노션이 뭔지 알게 됨. 기본기를 다져요.</div></div>
+    <div class="grade-card" style="margin:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:2mm;"><div class="grade-num">2</div><div class="grade-name" style="margin:0;">2학년</div></div><div class="card-desc">내 업무에 노션을 적용하기 시작함.</div></div>
+    <div class="grade-card" style="margin:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:2mm;"><div class="grade-num">3</div><div class="grade-name" style="margin:0;">3학년</div></div><div class="card-desc">DB 구조화 사고를 익힘.</div></div>
+    <div class="grade-card" style="margin:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:2mm;"><div class="grade-num">4</div><div class="grade-name" style="margin:0;">4학년</div></div><div class="card-desc">전문가 영역을 자각함. 졸업!</div></div>
+  </div>
+    <!-- 👇 928행 자리: 주소를 클릭하면 실제 연결되는 단정한 링크 버튼으로 업그레이드했습니다 -->
+    <!-- 🎯 928행 시작: 배너 상단 타이틀과 하단 서브 설명까지 포함된 마스터 링크 구역입니다 -->
+    <a href="https://effi-notionuniv.com" target="_blank" style="display: block; width: 100%; text-decoration: none; box-sizing: border-box; margin-top: 6mm; margin-bottom: 5mm;">
+      
+      <!-- 🎓 상단 타이틀 (글씨가 배너 머리 위로 위치) -->
+      <div style="text-align: center; margin-bottom: 3.5mm;">
+        <div style="font-size: 13.5px; font-weight: 800; color: var(--brown-dk); letter-spacing: -0.2px;">
+          🎓 노선대학 공식 입학하기
+        </div>
+      </div>
+
+      <!-- 📸 중간 배너 이미지 프레임 -->
+      <div style="width: 100%; border: 1.5px solid var(--cream3); background-color: #ffffff; border-radius: 8px; overflow: hidden; box-sizing: border-box;">
+        <img src="https://i.imgur.com/cRILFJ5.jpeg" alt="노선대학 공식 입학하기 배너" style="width: 100%; height: auto; display: block;">
+      </div>
+
+      <!-- 📝 [신규 추가] 배너 하단 작은 글씨 설명 구역 -->
+      <div style="font-size: 9.5px; color: var(--text-lt); text-align: center; margin-top: 2.5mm; line-height: 1.4; font-weight: 400; letter-spacing: -0.1px;">
+        위 배너를 클릭하면 노션대학 공식 사이트로 바로 이동됩니다
+      </div>
+
+    </a> <!-- 💡 링크 구역 깔끔하게 마감 -->
+
+  <div class="tip-box">💡 <strong>노션대학</strong>은 노션을 배우고 싶은 사람들과 함께하는 커뮤니티예요. 함께 배우면 훨씬 빠훨고 쉽게 늘어요!</div>
+</div>
+
+<!-- PAGE 24 Day7 마무리 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">DAY 7 · 마무리</span><span class="page-num">24 / 26</span></div>
+  <div class="day-badge">🎊 Day 7</div>
+  <div class="page-title">Day 7 마무리</div>
+  <ul class="checklist" style="margin-bottom:5mm">
+    <li><span class="check-box"></span>4개 전공 중 나에게 맞는 전공을 골랐어요</li>
+    <li><span class="check-box"></span>노션대학 입학 완료</li>
+    <li><span class="check-box"></span>7일 챌린지 완주! 🥳</li>
+  </ul>
+  <div class="day-complete" style="margin-bottom:5mm">🎉 7일 완주 진심으로 축하해요!! 노션이 낯선 채로 첫 페이지를 만들고, 여기까지 왔어요. 대단해요 정말로!</div>
+  <div class="why-box">
+    <span class="why-label">마지막으로 하나만</span>
+    <p>노션은 쓸수록 느는 도구예요.</p>
+    <p>지금 완벽하지 않아도 괜찮아요.</p>
+    <p>꾸준히 쓰다 보면 자연스럽게 <strong>나만의 시스템</strong>이 만들어져요.</p>
+    <p style="margin-top:1.5mm">노션대학에서 그 과정을 같이해요 🦉</p>
+  </div>
+</div>
+
+
+<!-- PAGE 25 완주 인증 -->
+<div class="page">
+  <div class="page-header"><span class="page-label">완주 인증 🎉</span><span class="page-num">25 / 26</span></div>
+
+  <div class="completion-page" style="gap:0;">
+
+    <div style="font-size:52px;line-height:1;margin-bottom:3mm;">🎉</div>
+    <div style="font-family:'Noto Serif KR',serif;font-size:30px;font-weight:900;color:var(--brown-dk);text-align:center;line-height:1.2;margin-bottom:1.5mm;">
+      7일 챌린지 완주!
+    </div>
+    <p style="text-align:center;color:var(--text-lt);font-size:13px;margin-bottom:5mm;">내가 정말로 해냈어요 🥳</p>
+
+    <!-- 완주 축하 메시지 박스 -->
+    <div style="background:var(--cream2);border-left:4px solid var(--brown);border-radius:0 10px 10px 0;padding:4mm 5mm;width:100%;margin-bottom:4mm;">
+      <p style="font-size:12.5px;font-weight:700;color:var(--brown-dk);margin-bottom:2mm;">🦉 노션대학 공식 웰컴키트 받아가세요!</p>
+      <p style="font-size:12px;color:var(--text-lt);margin-bottom:0;line-height:1.8;">
+        당신은 노션에 대해 더욱 진심으로 배우고,<br>
+        노션으로 나만의 시스템을 구축하며,<br>
+        더 나은 삶을 설계하기 위해<br>
+        <strong style="color:var(--brown-dk);">'Notion'</strong>이라는 아이템을 장착하게 되었습니다.<br>
+        진심으로 축하드립니다. 🎓
+      </p>
+    </div>
+
+    <!-- 구분선 -->
+    <div style="width:100%;border-top:1.5px dashed var(--cream3);margin-bottom:4mm;"></div>
+
+<!-- 💡 SNS 인증 이벤트 박스 시작 -->
+<div style="width: 100%; background: transparent; border: 1.5px dashed var(--cream3); border-radius: 10px; padding: 4mm 5mm; box-sizing: border-box; margin-bottom: 6mm;"> <!-- 💡 background를 transparent(투명)로 변경하고 테두리를 단정한 점선으로 바꿨습니다 -->
+  
+  <div style="font-size: 10.5px; font-weight: 700; color: var(--brown); text-align: center; letter-spacing: -0.2px; margin-bottom: 2.5mm;">📬 SNS 인증 이벤트</div>
+  
+  <p style="font-size: 11.5px; color: var(--text-main); text-align: center; margin-top: 0; margin-bottom: 3.5mm; line-height: 1.6; letter-spacing: -0.1px;">
+    내 노션 대시보드 스크린샷을 SNS에 올리고<br>
+    무료 노션 템플릿들이 포함된 <strong>노션대학 웰컴키트</strong>를 받아가세요!
+  </p>
+
+  <!-- 태그 안내 상자 -->
+  <div style="background: transparent; border: 1px solid var(--cream3); border-radius: 6px; padding: 2.5mm 3.5mm; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box;">
+    <span style="flex-grow: 1; text-align: center; font-size: 10.5px; color: var(--brown-dk); font-weight: 700; letter-spacing: -0.3px;">
+      #노션대학 &nbsp; #노션7일챌린지 &nbsp; #노션학습지
+    </span>
+    <span style="font-size: 9px; color: #654321; font-weight: 500; flex-shrink: 0; margin-left: 2mm;">태그 필수</span>
+  </div>
+
+</div> <!-- 💡 SNS 인증 이벤트 흰색 박스 마감 -->
+
+
+<!-- ⬇️ 부엉이 로고 및 인스타 계정 안내 구역 (박스 밖 아래쪽 배치) -->
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; margin-top: 8mm; margin-bottom: 4mm; width: 100%;">
+  
+  <!-- 🦉 하젤님이 가져오신 마스코트 부엉이 로고 이미지 주소 적용 완료 -->
+  <img src="https://i.imgur.com/tiJIcht.png" alt="노선대학 부엉이 로고" style="width: 100px; height: 100px; object-fit: contain; display: block; margin-bottom: 1.5mm;">
+  
+  <!-- 안내 텍스트 및 인스타 아이디 -->
+  <div style="font-size: 10px; color: var(--text-lt); font-weight: 400; margin-bottom: 1mm; letter-spacing: -0.1px;">
+    노선대학 인스타그램
+  </div>
+  <div style="font-family: 'Noto Serif KR', serif; font-size: 12.5px; font-weight: 700; color: var(--brown-dk); letter-spacing: -0.2px;">
+    @effi_land
+  </div>
+
+</div> <!-- 💡 부엉이 로고 구역 최종 마감 -->
+
+  </div>
+</div>
+
+<!-- PAGE 26 마지막 CTA -->
+<div class="page" style="background:#2C1A0E;padding:0;overflow:hidden;position:relative;">
+
+  <!-- 배경 장식 원 -->
+  <div style="position:absolute;top:-30mm;right:-20mm;width:90mm;height:90mm;border-radius:50%;background:radial-gradient(circle,rgba(196,136,48,.18) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20mm;left:-15mm;width:70mm;height:70mm;border-radius:50%;background:radial-gradient(circle,rgba(196,136,48,.12) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <!-- 상단 골드 라인 -->
+  <div style="height:4px;background:linear-gradient(90deg,transparent,#C49030,#E8C87A,#C49030,transparent);position:relative;z-index:1;"></div>
+
+  <div style="padding:11mm 16mm 10mm;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;">
+
+    <!-- 마스코트 + 브랜드 -->
+    <div style="display:flex;align-items:center;gap:3mm;margin-bottom:7mm;">
+      <!-- 💡 PAGE 26 시작점: 높은 밸런스를 잡기 위해 수직 flex 구조로 세팅했습니다 -->
+<div class="page" style="background:#2C1A0E; padding: 14mm 16mm 10mm 16mm; overflow:hidden; position:relative; min-height: 250mm; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box;">
+  
+  <!-- 배경 장식 원 -->
+  <div style="position:absolute;top:-30mm;right:-20mm;width:90mm;height:90mm;border-radius:50%;background:radial-gradient(circle,rgba(196,136,48,.18) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20mm;left:-15mm;width:70mm;height:70mm;border-radius:50%;background:radial-gradient(circle,rgba(196,136,48,.12) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <!-- ================= [1. 맨 위 상단 영역] ================= -->
+  <div style="display:flex; flex-direction:column; align-items:center; width:100%; flex-shrink: 0;">
+    <!-- 마스코트 + 브랜드 로고 -->
+    <div style="display:flex; align-items:center; gap:3px; margin-bottom:2mm;">
+      <img src="https://i.imgur.com/tiJIcht.png" alt="노션대학 로고" style="width: 40px; height: 40px; object-fit:contain; flex-shrink: 0;">
+    </div>
+    <div style="font-size:8.5px; letter-spacing:3px; text-transform:uppercase; color:#7A5840; font-weight:600; margin-bottom: 12mm;">NOTION UNIVERSITY</div> <!-- 💡 12mm 마진으로 헤더와 타이틀 사이 공백을 시원하게 늘렸습니다 -->
+
+    <!-- 메인 헤드라인 -->
+    <div style="font-family:'Noto Serif KR',serif; font-size:28px; font-weight:900; color:#FFF8F0; line-height:1.3; text-align:center; margin-bottom:2mm; letter-spacing:-.5px;">아직 노션이 어려우세요?</div>
+    <div style="font-family:'Noto Serif KR',serif; font-size:22px; font-weight:700; color:#D4A855; line-height:1.3; text-align:center; margin-bottom:4mm; letter-spacing:-.3px;">괜찮아요! 노션대학이 있잖아요!</div>
+    
+    <!-- 골드 구분선 -->
+    <div style="width:25mm; height:1px; background:#C49030; border-radius:2px; margin-bottom:3mm;"></div>
+  </div>
+
+  <!-- ================= [2. 중간 영역: 정중앙 배치] ================= -->
+  <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex-grow: 1; width:100%; margin: 4mm 0;">
+    
+    <!-- 3가지 포인트 -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2.5mm; width:100%; margin-bottom:7mm;">
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(196,136,48,.22); border-radius:10px; padding:4mm 3mm; text-align:center;">
+        <div style="font-size:19px; margin-bottom:2mm;">📚</div>
+        <div style="width:5mm; height:1.5px; background:#C49030; border-radius:2px; margin:0 auto 2mm;"></div>
+        <div style="font-size:10.5px; font-weight:700; color:#E8D5B0; margin-bottom:1.5px; line-height:1.4;">전공별 커리큘럼</div>
+        <div style="font-size:9.5px; color:#6A4820; line-height:1.65;">내 목적에 맞는<br>체계적인 학습</div>
+      </div>
+      
+      <div style="background:rgba(212,168,85,.08); border:1.5px solid rgba(212,168,85,.38); border-radius:10px; padding:4mm 3mm; text-align:center;">
+        <div style="font-size:19px; margin-bottom:2mm;">💬</div>
+        <div style="width:5mm; height:1.5px; background:#D4A855; border-radius:2px; margin:0 auto 2mm;"></div>
+        <div style="font-size:10.5px; font-weight:700; color:#FFF8F0; margin-bottom:1.5px; line-height:1.4;">커뮤니티 Q&A</div>
+        <div style="font-size:9.5px; color:#6A4820; line-height:1.65;">막히면 언제든<br>질문할 수 있어요</div>
+      </div>
+      
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(196,136,48,.22); border-radius:10px; padding:4mm 3mm; text-align:center;">
+        <div style="font-size:19px; margin-bottom:2mm;">🏅</div>
+        <div style="width:5mm; height:1.5px; background:#C49030; border-radius:2px; margin:0 auto 2mm;"></div>
+        <div style="font-size:10.5px; font-weight:700; color:#E8D5B0; margin-bottom:1.5px; line-height:1.4;">학년제 성장 시스템</div>
+        <div style="font-size:9.5px; color:#6A4820; line-height:1.65;">1학년부터 4학년<br>단계적으로 성장</div>
+      </div>
+    </div>
+  <div style="text-align:center; width:100%; margin-bottom: 25mm;">
+      <!-- ================= [2. 중간 영역: 입학하기 버튼 링크 연동 완료] ================= -->
+  <div style="text-align:center; width:100%; margin-bottom: 25mm;">
+    <!-- 🔗 href="#" 자리에 주신 진짜 링크 주소를 정확하게 삽입했습니다 -->
+    <a href="https://effi-notionuniv.com" target="_blank" style="display:inline-block; background:linear-gradient(135deg, #F0C965, #D4A855); color:#2C1A0E; font-weight:800; font-size:13px; padding:3.5mm 8mm; border-radius:50px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:all 0.2s;">노션대학 캠퍼스 구경하기 ➔</a>
+    <div style="font-size:9.5px; color:#6A4820; margin-top:2.5mm;">새 창으로 이동됩니다</div>
+  </div>
+
+  <!-- ================= [3. 맨 마지막 하단 영역: 바닥선에 바짝 하강] ================= -->
+  <div style="text-align:center; width:100%; margin-bottom: 1mm; flex-shrink: 0;"> <!-- 💡 여백을 1mm로 줄여 바닥에 바짝 붙였습니다 -->
+    <div style="font-size:10px; color:#A88060; line-height:1.6; letter-spacing: -0.1px;">노션(Notion)에 대해 아주 기초부터 심화까지 한번에</div>
+    <div style="font-family:'Noto Serif KR',serif; font-size:16px; font-weight:700; color:#FFF8F0; margin-top:1.5mm;">노션대학에서 만나요! 🎓</div>
+  </div>
+
+</div> <!-- 26페이지 전체 도화지 마감 -->
+
+</body>
+</html>
