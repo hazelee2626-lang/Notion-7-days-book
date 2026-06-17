@@ -977,61 +977,85 @@ strong { color: var(--brown-dk); }
   </div>
 </div>
 
-<!-- PAGE 22 Day7 전공찾기 -->
-<div class="page">
-  <div class="page-header"><span class="page-label">DAY 7 · 내 전공 찾기</span><span class="page-num">22 / 26</span></div>
-  <div class="day-badge">🎓 Day 7 — 마지막 날!</div>
-  <div class="page-title">내 전공 찾기</div>
-  <div class="page-subtitle">노션을 왜 쓰고 싶은지에 따라 전공이 달라져요</div>
-  <div class="why-box">
-    <span class="why-label">전공이 왜 있어요?</span>
-    <p>사람마다 노션을 쓰는 목적이 달라요.</p>
-    <p>일상을 기록하려는 사람, 업무를 정리하려는 사람, 시간을 관리하려는 사람...</p>
-    <p>전공을 선택하면 <strong>나에게 맞는 커리큘럼으로</strong> 필요되는 내용만 배울 수 있어요.</p>
+<div class="page" style="margin-bottom: 25mm !important;">
+  <div class="page-header"><span class="page-label">PAGE 25</span><span class="page-num">25 / 26</span></div>
+  <div class="day-badge">🎓 Day 7</div>
+  <div class="page-title serif-text" style="font-weight: 700;">내 전공 찾기</div>
+  <div class="page-subtitle" style="letter-spacing: -0.1px;">노션을 왜 쓰고 싶은지에 따라 전공이 달라져요</div>
+  
+  <div class="why-box" style="margin-bottom: 5mm;">
+    <span class="why-label" style="font-size: 13.5px; font-weight: 800; color: var(--brown-dk); letter-spacing: -0.2px;">전공이 왜 필요해요?</span>
+    <p style="margin-top: 0; margin-bottom: 2mm; font-size: 11.5px; line-height: 1.6; color: var(--text-main); letter-spacing: -0.1px;">
+      사람마다 노션을 쓰는 목적이 달라요.<br>
+      일상을 기록하려는 사람, 업무를 정리하려는 사람, 시간을 관리하려는 사람...
+    </p>
+    <p style="margin-top: 0; margin-bottom: 0; font-size: 11.5px; line-height: 1.6; color: var(--text-main); letter-spacing: -0.1px;">
+      전공을 선택하면 <span style="color: var(--brown-dk); font-weight: 700;">나에게 맞는 커리큘럼으로</span> 필요하지 않은 내용만 배울 수 있어요! ✨
+    </p>
   </div>
-        <!-- 👇 991행 시작: 아이콘 크기를 한 번 더 더블(64px)로 키우고 레이아웃을 최적화한 구역입니다 -->
-      <div class="card-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 5mm;">
-        
-        <!-- 1️⃣ 기록러 전공 카드 -->
-        <div class="grade-card" style="margin: 0; padding: 4.5mm; background: #ffffff; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
-          <div style="display: flex; align-items: center; gap: 3.5mm; margin-bottom: 2px;">
-            <!-- 💡 크기를 32px에서 64px로 한 번 더 2배 확대 완료! -->
-            <img src="https://i.imgur.com/x3UMykL.jpeg" alt="기록러 아이콘" style="width: 64px; height: 64px; object-fit: contain; display: block; flex-shrink: 0; border-radius: 6px;">
-            <div class="grade-name" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); margin: 0;">기록러 전공</div>
-          </div>
-          <div class="card-desc" style="font-size: 9.5px; color: var(--text-lt); line-height: 1.45;">일상·독서·습관·회고를 기록하고 싶어요.<br>라이프 대시보드 구축.</div>
-        </div>
 
-        <!-- 2️⃣ 일잘러 전공 카드 -->
-        <div class="grade-card" style="margin: 0; padding: 4.5mm; background: #ffffff; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
-          <div style="display: flex; align-items: center; gap: 3.5mm; margin-bottom: 2px;">
-            <img src="https://i.imgur.com/GSPTsvo.jpeg" alt="일잘러 아이콘" style="width: 64px; height: 64px; object-fit: contain; display: block; flex-shrink: 0; border-radius: 6px;">
-            <div class="grade-name" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); margin: 0;">일잘러 전공 <br><span style="font-size: 9px; color: var(--text-lt); font-weight: 700;">26.06 첫 오픈!</span></div>
-          </div>
-          <div class="card-desc" style="font-size: 9.5px; color: var(--text-lt); line-height: 1.45;">프리랜서·직장인·크리에이터 등<br>업무 시스템 만들기.</div>
-        </div>
+  <!-- 👇 ✨ [더블체크 완료] .grade-card의 기존 background 속성을 완전히 청소하고, 우측 하단 유령 이미지를 140px로 크게 키웠습니다 -->
+  <div class="card-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 6mm; box-sizing: border-box;">
+    
+    <!-- 1️⃣ 기록러 전공 카드 -->
+    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
+      <!-- 🖼️ 뒷배경 유령 레이어 (110px에서 140px로 25% 이상 추가 확대 완료, 텍스트 줄바꿈 간섭 0%) -->
+      <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/x3UMykL.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
+      
+      <!-- 📝 앞단 텍스트 레이어 (배경 위로 올라타서 가독성 수호) -->
+      <div style="position: relative; z-index: 2; pointer-events: auto;">
+        <div class="grade-name serif-text" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); letter-spacing: -0.2px; margin-bottom: 6px;">기록러 전공</div>
+        <div class="card-desc" style="font-size: 9.5px; color: var(--text-main); font-weight: 400; line-height: 1.45;">일상·독서·습관·회고를 기록하고 싶어요.<br>라이프 대시보드 구축.</div>
+      </div>
+    </div>
 
-        <!-- 3️⃣ 팀빌더 전공 카드 -->
-        <div class="grade-card" style="margin: 0; padding: 4.5mm; background: #ffffff; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
-          <div style="display: flex; align-items: center; gap: 3.5mm; margin-bottom: 2px;">
-            <img src="https://i.imgur.com/bl5U4VF.jpeg" alt="팀빌더 아이콘" style="width: 64px; height: 64px; object-fit: contain; display: block; flex-shrink: 0; border-radius: 6px;">
-            <div class="grade-name" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); margin: 0;">팀빌더 전공</div>
-          </div>
-          <div class="card-desc" style="font-size: 9.5px; color: var(--text-lt); line-height: 1.45;">우리 팀에 노션을 도입하고 싶어요.<br>협업 시스템 구축.</div>
-        </div>
+    <!-- 2️⃣ 일잘러 전공 카드 -->
+    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
+      <!-- 🖼️ 뒷배경 유령 레이어 -->
+      <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/x3UMykL.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
+      
+      <!-- 📝 앞단 텍스트 레이어 -->
+      <div style="position: relative; z-index: 2; pointer-events: auto;">
+        <div class="grade-name serif-text" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); letter-spacing: -0.2px; margin-bottom: 6px;">일잘러 전공 <span style="font-size: 9px; color: var(--text-lt); font-weight: 700; margin-left: 1mm;">26.06 첫 오픈!</span></div>
+        <div class="card-desc" style="font-size: 9.5px; color: var(--text-main); font-weight: 400; line-height: 1.45;">프리랜서·직장인·크리에이터 등<br>업무 시스템 만들기.</div>
+      </div>
+    </div>
 
-        <!-- 4️⃣ 학습러 전공 카드 -->
-        <div class="grade-card" style="margin: 0; padding: 4.5mm; background: #ffffff; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
-          <div style="display: flex; align-items: center; gap: 3.5mm; margin-bottom: 2px;">
-            <img src="https://i.imgur.com/m2sbNXf.jpeg" alt="학습러 아이콘" style="width: 64px; height: 64px; object-fit: contain; display: block; flex-shrink: 0; border-radius: 6px;">
-            <div class="grade-name" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); margin: 0;">학습러 전공</div>
-          </div>
-          <div class="card-desc" style="font-size: 9.5px; color: var(--text-lt); line-height: 1.45;">공부를 체계적으로 관리하고 싶어요.<br>학습 시스템 구축.</div>
-        </div>
+    <!-- 3️⃣ 팀빌더 전공 카드 -->
+    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
+      <!-- 🖼️ 뒷배경 유령 레이어 -->
+      <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/x3UMykL.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
+      
+      <!-- 📝 앞단 텍스트 레이어 -->
+      <div style="position: relative; z-index: 2; pointer-events: auto;">
+        <div class="grade-name serif-text" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); letter-spacing: -0.2px; margin-bottom: 6px;">팀빌더 전공</div>
+        <div class="card-desc" style="font-size: 9.5px; color: var(--text-main); font-weight: 400; line-height: 1.45;">우리 팀에 노션을 도입하고 싶어요.<br>협업 시스템 구축.</div>
+      </div>
+    </div>
 
-      </div> <!-- 💡 998행 부근 마감 -->
+    <!-- 4️⃣ 학습러 전공 카드 -->
+    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
+      <!-- 🖼️ 뒷배경 유령 레이어 -->
+      <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/x3UMykL.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
+      
+      <!-- 📝 앞단 텍스트 레이어 -->
+      <div style="position: relative; z-index: 2; pointer-events: auto;">
+        <div class="grade-name serif-text" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); letter-spacing: -0.2px; margin-bottom: 6px;">학습러 전공</div>
+        <div class="card-desc" style="font-size: 9.5px; color: var(--text-main); font-weight: 400; line-height: 1.45;">공부를 체계적으로 관리하고 싶어요.<br>학습 시스템 구축.</div>
+      </div>
+    </div>
+
+  </div> <!-- card-grid 마감 -->
+
+  <!-- 하단 팁 박스 -->
+  <div style="width: 100%; border: 1px solid var(--cream3); border-radius: 8px; padding: 4.5mm; background: transparent; box-sizing: border-box; margin-bottom: 5mm;">
+    <div class="tip-box" style="margin: 0; font-size: 11px; line-height: 1.6; color: var(--text-main); letter-spacing: -0.1px;">
+      💡 각 전공을 클릭하시면 해당 커리큘럼으로 <strong style="color: var(--brown-dk);">바로 연결되는 마법</strong>이 펼쳐집니다! ✨
+    </div>
+  </div>
 
 </div>
+
 
 <!-- PAGE 23 Day7 입학 -->
 <div class="page">
