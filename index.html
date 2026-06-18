@@ -616,9 +616,9 @@ strong { color: var(--brown-dk); }
   <h3 class="sub-title">텍스트 계열 블록</h3>
   <div class="block-showcase">
     <div class="block-item"><div class="bi-cmd"># /제목1</div><div class="bi-name">큰 제목</div><div class="bi-desc">페이지 대제목. 가장 크게 표시돼요.</div></div>
-    <div class="block-item"><div class="bi-cmd">## /제목2</div><div class="bi-name">중간 제목</div><div class="bi-desc">섹션 구분할 때. '제목1'보다 작아요.</div></div>
+    <div class="block-item"><div class="bi-cmd">## /제목2</div><div class="bi-name">중간 제목</div><div class="bi-desc">섹션 구분할 때. '제목1'보다 작아요.<br>제목은 ### = 제목3 까지 가능합니다.</div></div>
     <div class="block-item"><div class="bi-cmd">☑️ /할 일 목록</div><div class="bi-name">할 일 목록</div><div class="bi-desc">체크박스! 클릭하면 완료 표시돼요.</div></div>
-    <div class="block-item"><div class="bi-cmd">🌫️ /콜아웃</div><div class="bi-name">콜아웃</div><div class="bi-desc">이모지 + 배경색 박스. 눈에 확 띄어요.</div></div>
+    <div class="block-item"><div class="bi-cmd">🌫️ /콜아웃</div><div class="bi-name">콜아웃</div><div class="bi-desc">이모지 + 배경색 박스. 정돈된 느낌을 줘요.</div></div>
   </div>
   <h3 class="sub-title">미디어 계열 블록</h3>
   <div class="block-showcase">
@@ -998,19 +998,17 @@ strong { color: var(--brown-dk); }
   <div class="card-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 6mm; box-sizing: border-box;">
     
     <!-- 1️⃣ 기록러 전공 카드 -->
-    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
-      <!-- 🖼️ 뒷배경 유령 레이어 (110px에서 140px로 25% 이상 추가 확대 완료, 텍스트 줄바꿈 간섭 0%) -->
-      <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/x3UMykL.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
+        <div onclick="window.open('https://effi-notionuniv.com/majors/recorder', '_blank')" class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important; cursor: pointer;">
+      <div style="position: absolute; right: -12px; bottom: -20px; width: 160px; height: 160px; background: url('https://i.imgur.com/x3UMykL.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
       
-      <!-- 📝 앞단 텍스트 레이어 (배경 위로 올라타서 가독성 수호) -->
-      <div style="position: relative; z-index: 2; pointer-events: auto;">
+      <div style="position: relative; z-index: 2;">
         <div class="grade-name serif-text" style="font-size: 12px; font-weight: 800; color: var(--brown-dk); letter-spacing: -0.2px; margin-bottom: 6px;">기록러 전공</div>
         <div class="card-desc" style="font-size: 9.5px; color: var(--text-main); font-weight: 400; line-height: 1.45;">일상·독서·습관·회고를 기록하고 싶어요.<br>라이프 대시보드 구축.</div>
       </div>
     </div>
 
     <!-- 2️⃣ 일잘러 전공 카드 -->
-    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
+    <div onclick="window.open('https://effi-notionuniv.com/majors/worker', '_blank')" class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important; cursor: pointer;">
       <!-- 🖼️ 뒷배경 유령 레이어 -->
       <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/GSPTsvo.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
       
@@ -1022,7 +1020,7 @@ strong { color: var(--brown-dk); }
     </div>
 
     <!-- 3️⃣ 팀빌더 전공 카드 -->
-    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
+    <div onclick="window.open('https://effi-notionuniv.com/majors/team', '_blank')" class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important; cursor: pointer;">
       <!-- 🖼️ 뒷배경 유령 레이어 -->
       <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/bl5U4VF.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
       
@@ -1034,7 +1032,7 @@ strong { color: var(--brown-dk); }
     </div>
 
     <!-- 4️⃣ 학습러 전공 카드 -->
-    <div class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important;">
+    <div onclick="window.open('https://effi-notionuniv.com/majors/student', '_blank')" class="grade-card" style="margin: 0; padding: 5mm; border: 1px solid var(--cream3); border-radius: 6px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; position: relative; min-height: 32mm; overflow: hidden; background: #ffffff !important; cursor: pointer;">
       <!-- 🖼️ 뒷배경 유령 레이어 -->
       <div style="position: absolute; right: -10px; bottom: -15px; width: 140px; height: 140px; background: url('https://i.imgur.com/m2sbNXf.jpeg') no-repeat center / contain; opacity: 0.3; z-index: 1; pointer-events: none;"></div>
       
@@ -1048,9 +1046,9 @@ strong { color: var(--brown-dk); }
   </div> <!-- card-grid 마감 -->
 
   <!-- 하단 팁 박스 -->
-  <div style="width: 100%; border: 1px solid var(--cream3); border-radius: 8px; padding: 4.5mm; background: transparent; box-sizing: border-box; margin-bottom: 5mm;">
-    <div class="tip-box" style="margin: 0; font-size: 11px; line-height: 1.6; color: var(--text-main); letter-spacing: -0.1px;">
-      💡 각 전공을 클릭하시면 해당 커리큘럼으로 <strong style="color: var(--brown-dk);">바로 연결되는 마법</strong>이 펼쳐집니다! ✨
+  <div class="tip-box" style="width: 100%; border: 1px solid var(--cream3); border-radius: 8px; padding: 4.5mm; background: transparent; box-sizing: border-box; margin-top: 5mm; margin-bottom: 2mm; text-align: left;">
+    <div style="font-size: 11px; line-height: 1.6; color: var(--text-main); letter-spacing: -0.1px; margin: 0;">
+      ✨ 각 전공을 클릭하시면 해당 커리큘럼으로 <strong style="color: var(--brown-dk);">바로 연결되는 마법</strong>이 펼쳐집니다! ✨
     </div>
   </div>
 
